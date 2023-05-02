@@ -1,6 +1,6 @@
 body {
   font-family: Arial, "Helvetica Neue", Helvetica, sans-serif;
-  background-color: #FFCAB5;
+  background-color: #666;
 }
 
 .porfolio__heading {
@@ -24,11 +24,24 @@ body {
 
 .grid__image {
   aspect-ratio: 3 / 4;
+  clip-path: polygon(1% 100%, 6% 89%, 0% 74%, 11% 57%, 0% 44%, 12% 16%, 2% 1%, 28% 7%, 42% 1%, 66% 16%, 79% 0%, 90% 7%, 100% 2%, 96% 21%, 99% 32%, 92% 44%, 100% 68%, 85% 85%, 100% 100%, 35% 89%);
+  background-color: #fff;
+  transition: clip-path 1s ease;
+}
+
+.grid__image:hover {
+  clip-path: polygon(0% 100%, 0% 100%, 0% 100%, 0% 100%, 0% 100%, 0% 0%, 0% 0%, 0% 0%, 0% 0%, 0% 0%, 100% 0%, 100% 0%, 100% 0%, 100% 0%, 100% 0%, 100% 100%, 100% 100%, 100% 100%, 100% 100%, 100% 100%);
 }
 
 .grid__image img {
   width: 100%;
   height: 100%;
+  scale: 0.6;
+  transition: scale 1s ease;
+}
+
+.grid__image:hover img {
+  scale: 0.9;
 }
 
 .grid__image:first-child {
