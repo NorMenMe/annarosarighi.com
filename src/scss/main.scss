@@ -1,6 +1,6 @@
 body {
   font-family: Arial, "Helvetica Neue", Helvetica, sans-serif;
-  background-color: #666;
+  background-color: #EBEBEB;
 }
 
 .porfolio__heading {
@@ -14,19 +14,42 @@ body {
 .grid {
   list-style-type: none;
   margin: 0 auto;
-  padding: 0;
+  padding: 1rem;
   max-width: 1000px;
+
+  @media (min-width: 767px) {
   display: grid;
   grid-template-columns: auto auto;
   grid-template-rows: auto auto;
   gap: 20px;
+  }
 }
 
 .grid__image {
   aspect-ratio: 3 / 4;
-  clip-path: polygon(1% 100%, 6% 89%, 0% 74%, 11% 57%, 0% 44%, 12% 16%, 2% 1%, 28% 7%, 42% 1%, 66% 16%, 79% 0%, 90% 7%, 100% 2%, 96% 21%, 99% 32%, 92% 44%, 100% 68%, 85% 85%, 100% 100%, 35% 89%);
   background-color: #fff;
+  max-width: 270px;
   transition: clip-path 1s ease;
+  margin: 1rem auto;
+
+  @media (min-width: 767px) {  
+    max-width: revert;
+    margin: 0;
+  }
+}
+
+.grid__image:nth-child(even) {
+  clip-path: polygon(1% 100%, 6% 89%, 0% 74%, 11% 57%, 0% 44%, 12% 16%, 2% 1%, 28% 7%, 42% 1%, 66% 16%, 79% 0%, 90% 7%, 100% 2%, 96% 21%, 99% 32%, 92% 44%, 100% 68%, 85% 85%, 100% 100%, 35% 89%);
+}
+
+.grid__image:nth-child(odd) {
+  clip-path: polygon(1% 100%, 4% 81%, 7% 57%, 8% 37%, 13% 0%, 32% 1%, 52% 1%, 77% 0%, 91% 1%, 100% 0%, 97% 24%, 94% 47%, 91% 78%, 91% 95%, 89% 100%, 65% 98%, 49% 98%, 26% 98%, 13% 99%, 13% 99%);
+}
+
+.grid__image:nth-child(4) {
+  clip-path: polygon(3% 97%, 1% 85%, 0% 67%, 4% 53%, 13% 34%, 23% 22%, 34% 12%, 55% 2%, 76% 1%, 92% 5%, 100% 17%, 100% 33%, 95% 56%, 92% 70%, 83% 94%, 61% 98%, 37% 100%, 21% 100%, 11% 100%, 11% 100%);
+  display: flex;
+  align-items: center;
 }
 
 .grid__image:hover {
@@ -45,26 +68,33 @@ body {
 }
 
 .grid__image:first-child {
-  grid-column: 1 / 2;
-  grid-row: 1 / 2;
+  @media (min-width: 767px) {  
+    grid-column: 1 / 2;
+    grid-row: 1 / 2;  
+  }
 }
 .grid__image:nth-child(2) {
-  grid-column: 2 / 3;
-  grid-row: 1 / 2;
+    @media (min-width: 767px) {  
+      grid-column: 2 / 3;
+      grid-row: 1 / 2;
+  }
 }
 .grid__image:nth-child(3) {
-  grid-column: 1 / 2;
-  grid-row: 2 / 3;
+    @media (min-width: 767px) {  
+      grid-column: 1 / 2;
+      grid-row: 2 / 3;    
+  }
 }
 .grid__image:last-child {
-  grid-column: 2 / 3;
-  grid-row: 2 / 3;
-  display: flex;
-  align-items: center;
+    @media (min-width: 767px) {  
+      grid-column: 2 / 3;
+      grid-row: 2 / 3;
+      display: flex;
+      align-items: center;    
+  }
 }
 
 .grid__image:last-child img {
-  max-width: 1000px;
   height: auto;
 }
 
