@@ -3,14 +3,26 @@ body {
   background-color: #F5F5F5;
 }
 
-.porfolio__heading {
-  padding: 1rem;
+.portfolio__heading > h1 {
+  text-align: center;
 }
 
-.porfolio__heading svg {
-  width: 40px;
+.portfolio__copy {
+  display: grid;
+  grid-template-columns: auto;
+  grid-template-rows: 0;
+  overflow: hidden;
 }
 
+.portfolio__heading--collapsed .portfolio__copy {
+  grid-template-rows: 1fr;
+}
+
+.portfolio__copy > p {
+  grid-row: 1 / 2;
+}
+
+/////////////
 .grid {
   list-style-type: none;
   margin: 0 auto;
