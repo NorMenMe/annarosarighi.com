@@ -3,6 +3,7 @@
 
 body {
   font-family: 'Bodoni Moda', serif;
+  font-family: 'Helvetia';
   background-color: #F5F5F5;
 }
 
@@ -54,7 +55,6 @@ body {
   overflow: hidden;
   font-size: 16px;
   opacity: 0;
-  transition: opacity 1000ms ease-out;
 
   @media (min-width: 768px) {
     font-size: 18px;
