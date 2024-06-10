@@ -17,18 +17,13 @@ body {
 }
 
 .portfolio__header {
+  width: fit-content;
   max-width: 500px;
   margin: 40px auto 0;
   padding: 10px;
-  transition: height 400ms cubic-bezier(0.47,0,0.75,0.76);
-
 
   &.ani-in {
     animation: ani-in 1000ms ease;
-  }
-
-  &.portfolio__header--collapsed {
-    height: auto;
   }
 
   @media (min-width: 768px) {
@@ -40,45 +35,28 @@ body {
   }
 }
 
-.portfolio__heading {
+.portfolio__headline {
   margin: 0px;
-  display: grid;
-  place-content: center;
-}
+  height: 2.5vw;
+  transition: height 400ms ease;
 
-.portfolio__button {
-  font-family: 'Quicksand', sans-serif;
-  font-size: 16px;
-  padding: 0.5em 0.8em 0.4em 0.8em;
-  border: 1px solid black;
-  border-radius: 5px;
-  transition: background-color 400ms ease;
-
-  @media (min-width: 768px) {
-    font-size: 18px;
-  }
-
-  @media (min-width: 1200px) {
-      font-size: 20px;
+  header:hover & {
+    height: 4.2vw;
   }
 }
 
-.portfolio__button:hover {
-  cursor: pointer;
-  background-color: #FCFCFC;
+.portfolio__info {
+  background-color: #fff;
+  display: inline-block;
+  width: 100%;
+  font-style: italic;
 }
 
 .portfolio__copy {
-  position: absolute;
-  top: -9999px;
-  left: -9999px;
-  display: grid;
-  grid-template-columns: auto;
-  grid-template-rows: 0;
-  overflow: hidden;
+  height: 0;
   font-size: 16px;
   opacity: 0;
-  transition: opacity 800ms ease;
+  transition: height 800ms ease, opacity 400ms ease;
   margin-top: 1.5em;
 
   @media (min-width: 768px) {
@@ -88,17 +66,17 @@ body {
   @media (min-width: 1200px) {
       font-size: 20px;
   }
+
+  header:hover & {
+    height: 15vw;
+    opacity: 1;
+  }
 }
 
-.portfolio__header--collapsed .portfolio__copy {
-  position: static;
-  grid-template-rows: 1fr;
-  opacity: 1;
+.portfolio__copy > span {
+  display: block;
 }
 
-.portfolio__copy > span:last-child {
-  margin-top: 0.75em;
-}
 
 .portfolio__media {
   list-style-type: none;
