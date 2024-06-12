@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600&family=Nunito:wght@400;600&family=Quicksand:wght@400;600&family=Roboto+Condensed:wght@400;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Hanken+Grotesk:ital,wght@0,100..900;1,100..900&display=swap');
 
 @keyframes ani-in {
 
@@ -12,7 +12,8 @@
 }
 
 body {
-  font-family: 'Quicksand', sans-serif;
+  font-family: "Hanken Grotesk", sans-serif;
+  font-optical-sizing: auto;
   background-color: #F5F5F5;
 }
 
@@ -37,19 +38,23 @@ body {
 
 .portfolio__headline {
   margin: 0px;
-  height: 2.5vw;
-  transition: height 400ms ease;
+  height: 0.85em;
+  color: rgba(0, 0, 0, 0.5);
+  transition: height 500ms ease-out, color 600ms ease-in;
 
-  header:hover & {
-    height: 4.2vw;
+  .portfolio__header:hover & {
+    height: 1.3em;
+    color: rgba(0, 0, 0, 1);
   }
 }
 
 .portfolio__info {
-  background-color: #fff;
+  background-color: #F5F5F5;
+  border-top: 3px solid #fff;
   display: inline-block;
   width: 100%;
   font-style: italic;
+  font-weight: 400;
 }
 
 .portfolio__copy {
@@ -57,6 +62,7 @@ body {
   font-size: 16px;
   opacity: 0;
   transition: height 800ms ease, opacity 400ms ease;
+  font-weight: 200;
   margin-top: 1.5em;
 
   @media (min-width: 768px) {
