@@ -18,7 +18,7 @@ if (allLists.length) {
   Lazer.init();
 }
 
-const buttons = document.querySelectorAll('.portfolio__button');
+const buttons = document.querySelectorAll('.header__button');
 
 buttons.length && buttons.forEach( button => {
   button.addEventListener('click', () => {
