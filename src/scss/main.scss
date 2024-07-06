@@ -1,4 +1,7 @@
+@use 'base.scss';
+
 @import url('https://fonts.googleapis.com/css2?family=Hanken+Grotesk:ital,wght@0,100..900;1,100..900&display=swap');
+
 
 @keyframes ani-in {
 
@@ -40,16 +43,20 @@ body {
   margin: 0px;
   height: 0.85em;
   color: rgba(0, 0, 0, 0.5);
-  transition: height 500ms ease-out, color 600ms ease-in;
+  transition: height 500ms ease-out, color 500ms ease-in;
 
-  .portfolio__header:hover & {
+  .is-collapsed & {
     height: 1.3em;
     color: rgba(0, 0, 0, 1);
   }
 }
 
-.portfolio__info {
+.portfolio__button {
+  padding: 0;
+  text-align: start;
+  cursor: pointer;
   background-color: #F5F5F5;
+  border: none;
   border-top: 3px solid #fff;
   display: inline-block;
   width: 100%;
@@ -73,9 +80,13 @@ body {
       font-size: 20px;
   }
 
-  header:hover & {
-    height: 15vw;
+  .is-collapsed & {
+    height: 50vw;
     opacity: 1;
+
+    @media (min-width: 768px) {
+      height: 15vw;
+    }
   }
 }
 
