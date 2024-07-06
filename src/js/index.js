@@ -17,3 +17,14 @@ if (allLists.length) {
 
   Lazer.init();
 }
+
+const buttons = document.querySelectorAll('.portfolio__button');
+
+buttons.length && buttons.forEach( button => {
+  button.addEventListener('click', () => {
+    let isCollapsed = button.getAttribute('aria-expanded') === 'true';
+    isCollapsed = !isCollapsed;
+    button.setAttribute('aria-expanded', isCollapsed);
+    isCollapsed ? button.parentElement.classList.add('is-collapsed') : button.parentElement.classList.remove('is-collapsed');
+  })
+})
