@@ -92,9 +92,10 @@ body {
   font-size: 16px;
   opacity: 0;
   transition: height 800ms ease, opacity 400ms ease;
-  font-weight: 200;
+  font-weight: 300;
   margin-top: 1.5em;
   display: flex;
+  row-gap: 5px;
   flex-direction: column;
 
   @media (min-width: 768px) {
@@ -103,17 +104,29 @@ body {
 
   @media (min-width: 1200px) {
       font-size: 20px;
+      row-gap: 10px;
   }
 }
 
  .is-collapsed + .header__copy {
-    height: 50vw;
+    height: 60vw;
     opacity: 1;
 
     @media (min-width: 768px) {
       height: 15vw;
     }
   }
+
+.header__copy strong {
+  font-style: italic;
+  font-weight: 600;
+  opacity: 1;
+  transition: opacity 600ms ease-out;
+
+  .is-collapsed + & {
+    opacity: 0.3;
+  }
+}
 
 .portfolio {
   max-width: 1000px;
