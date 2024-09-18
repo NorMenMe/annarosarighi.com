@@ -1,14 +1,5 @@
 import { LazerLoader } from './lazer-loader.js';
 
-const container = document.querySelector(".portfolio__header");
-const button = document.querySelector(".portfolio__button");
-
-button.addEventListener("click", () => {
-  container.classList.toggle("portfolio__header--collapsed");
-});
-
-
-
 // // Into-Viewport Animation
 const allLists = document.querySelectorAll('.portfolio__header');
 
@@ -26,3 +17,14 @@ if (allLists.length) {
 
   Lazer.init();
 }
+
+const buttons = document.querySelectorAll('.header__button');
+
+buttons.length && buttons.forEach( button => {
+  button.addEventListener('click', () => {
+    let isCollapsed = button.getAttribute('aria-expanded') === 'true';
+    isCollapsed = !isCollapsed;
+    button.setAttribute('aria-expanded', isCollapsed);
+    isCollapsed ? button.parentElement.classList.add('is-collapsed') : button.parentElement.classList.remove('is-collapsed');
+  })
+})

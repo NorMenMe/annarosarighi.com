@@ -12,57 +12,69 @@
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Epilogue:wght@500;700&display=swap" rel="stylesheet">
   </head>
   <body>
-    <header class="portfolio__header ani-in">
-      <h1 class="portfolio__heading">
-        <button class="portfolio__button" type="button">THE ARTIST</button>
+    <header class="header ani-in">
+      <h1 class="header__heading">
+        <button class="header__button" type="button" aria-expanded="false">
+          <span class="header__headline">Annarosa Righi</span>
+          <span class="header__subhead">the artist</span>
+          <span class="sr-only">more information about the artist</span>
+        </button>
       </h1>
-      <p class="portfolio__copy">
+
+      <p class="header__copy">
         <span>
-          <strong>Annarosa</strong> balances her life between the mountains of Trentino and Berlin.</span>
+          <strong>Annarosa</strong>
+          <span>balances her life between the mountains of Trentino and Berlin.</span>
+        </span>
         <span>
-          <strong>Annarosa</strong> likes to capture on paper what she sees.</span>
+          <strong>Annarosa</strong>
+          <span>likes to capture on paper what she sees.</span>
+        </span>
         <span>
-          <strong>Annarosa</strong> is an active member of the Urban Sketchers group. She takes part every year to the exhibition <i>"Matite in Viaggio"</i>, Venice.
+          <strong>Annarosa</strong>
+          <span>is an active member of the Urban Sketchers group. She takes part every year to the exhibition <i>"Matite in Viaggio"</i>, Venice.</span>
         </span>
         <span>For more information:  <a href="mailto:annarosarighi@gmail.com">annarosarighi@gmail.com</a>.</span>
       </p>
     </header>
     <main id="main-content">
-      <ul class="portfolio__media">
-        <li class="portfolio__image">
-          <img src="assets/house-4.webp" alt="image of a house" loading="lazy">
-        </li>
-        <li class="portfolio__image">
-          <img src="assets/house-1.webp" alt="image of a house" loading="lazy">
-        </li>
-        <li class="portfolio__image">
-          <img src="assets/house-5.webp" alt="image of a house" loading="lazy">
-        </li>
-        <li class="portfolio__image">
-          <img src="assets/house-6.webp" alt="image of a house" loading="lazy">
-        </li>
-        <li class="portfolio__image">
-          <img src="assets/house-9.webp" alt="image of a house" loading="lazy">
-        </li>
-        <li class="portfolio__image">
-          <img src="assets/house-10.webp" alt="image of a house" loading="lazy">
-        </li>
-        <li class="portfolio__image">
-          <img src="assets/house-2.webp" alt="image of a house" loading="lazy">
-        </li>
-        <li class="portfolio__image">
-          <img src="assets/house-3.webp" alt="image of a house" loading="lazy">
-        </li>
-        <li class="portfolio__image">
-          <img src="assets/figure-7.webp" alt="image of a house" loading="lazy">
-        </li>
-        <li class="portfolio__image">
-          <img src="assets/figure-8.webp" alt="image of a house" loading="lazy">
-        </li>
-        <li class="portfolio__image">
-          <img src="assets/figure-14.webp" alt="image of a person" loading="lazy">
-        </li>
-      </ul>
+      <div class="portfolio">
+        <ul class="portfolio__media-list">
+          <li class="portfolio__image">
+            <img src="assets/house-4.webp" alt="image of a house" loading="lazy">
+          </li>
+          <li class="portfolio__image">
+            <img src="assets/house-1.webp" alt="image of a house" loading="lazy">
+          </li>
+          <li class="portfolio__image">
+            <img src="assets/house-5.webp" alt="image of a house" loading="lazy">
+          </li>
+          <li class="portfolio__image">
+            <img src="assets/house-6.webp" alt="image of a house" loading="lazy">
+          </li>
+          <li class="portfolio__image">
+            <img src="assets/house-9.webp" alt="image of a house" loading="lazy">
+          </li>
+          <li class="portfolio__image">
+            <img src="assets/house-10.webp" alt="image of a house" loading="lazy">
+          </li>
+          <li class="portfolio__image">
+            <img src="assets/house-2.webp" alt="image of a house" loading="lazy">
+          </li>
+          <li class="portfolio__image">
+            <img src="assets/house-3.webp" alt="image of a house" loading="lazy">
+          </li>
+          <li class="portfolio__image">
+            <img src="assets/figure-7.webp" alt="image of a house" loading="lazy">
+          </li>
+          <li class="portfolio__image">
+            <img src="assets/figure-8.webp" alt="image of a house" loading="lazy">
+          </li>
+          <li class="portfolio__image">
+            <img src="assets/figure-14.webp" alt="image of a person" loading="lazy">
+          </li>
+        </ul>
+      </div>
     </main>
   </body>
   <script type="module" src="./js/index.js"></script>
