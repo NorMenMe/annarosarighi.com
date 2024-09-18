@@ -1,6 +1,6 @@
 import { LazerLoader } from './lazer-loader.js';
 
-// // Into-Viewport Animation
+//  Into-Viewport Animation
 const allLists = document.querySelectorAll('.portfolio__header');
 
 if (allLists.length) {
@@ -17,6 +17,8 @@ if (allLists.length) {
 
   Lazer.init();
 }
+
+// dropdown logic
 
 const buttons = document.querySelectorAll('.header__button');
 
