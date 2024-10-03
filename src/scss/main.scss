@@ -1,6 +1,5 @@
 @use 'base.scss';
-
-@import url('https://fonts.googleapis.com/css2?family=Hanken+Grotesk:ital,wght@0,100..900;1,100..900&display=swap');
+@use "./font-face.scss" as *;
 
 
 @keyframes ani-in {
@@ -15,10 +14,12 @@
 }
 
 body {
-  font-family: "Hanken Grotesk", sans-serif;
+  font-family: "Open Sans", system-ui;
   font-optical-sizing: auto;
   background-color: #F5F5F5;
 }
+
+
 
 .header {
   width: fit-content;
