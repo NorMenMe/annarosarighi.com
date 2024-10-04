@@ -19,8 +19,6 @@ body {
   background-color: #F5F5F5;
 }
 
-
-
 .header {
   width: fit-content;
   margin: 40px auto 0;
@@ -66,15 +64,11 @@ body {
 
 .header__subhead {
   display: block;
-  font-size: 14px;
+  font-size: 0.4em;
   font-weight: 200;
   font-style: italic;
   position: relative;
   padding-top: 3px;
-
-   @media (min-width: 768px) {
-    font-size: 18px;
-  }
 
   &::after {
     content: '';
@@ -120,12 +114,12 @@ body {
 
 .header__copy strong {
   font-style: italic;
-  font-weight: 600;
-  opacity: 1;
-  transition: opacity 600ms ease-out;
+  font-weight: 400;
+  opacity: 0.3;
+  transition: opacity 1000ms ease-out;
 
   .is-collapsed + & {
-    opacity: 0.3;
+    opacity: 1;
   }
 }
 
