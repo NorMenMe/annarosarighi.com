@@ -39,6 +39,7 @@ body {
 
 .header__button {
   font-size: inherit;
+  color: currentColor;
   font-family: inherit;
   padding: 0;
   text-align: start;
@@ -47,6 +48,10 @@ body {
   border: none;
   display: block;
   width: 100%;
+
+   @media (min-width: 1200px) {
+    font-size: 2.4rem;
+  }
 }
 
 .header__headline {
