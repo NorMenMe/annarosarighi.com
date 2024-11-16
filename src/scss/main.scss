@@ -1,5 +1,6 @@
 @use 'base.scss';
 @use "./font-face.scss" as *;
+@use "./tilt-image.scss" as *;
 
 
 @keyframes ani-in {
@@ -11,6 +12,11 @@
   100% {
     transform: translate(0, 0);
   }
+}
+
+:root {
+	--transformX: 0;
+	--transformY: 0;
 }
 
 body {
@@ -265,4 +271,12 @@ body {
   height: auto;
 }
 
+.tilt-images-container {
+  margin-top: 5rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  color: #333;
+}
 

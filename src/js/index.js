@@ -1,4 +1,5 @@
 import { LazerLoader } from './lazer-loader.js';
+import { TiltImage } from './tilt-image.js';
 
 //  Into-Viewport Animation
 const allLists = document.querySelectorAll('.portfolio__header');
@@ -30,3 +31,5 @@ buttons.length && buttons.forEach( button => {
     isCollapsed ? button.parentElement.classList.add('is-collapsed') : button.parentElement.classList.remove('is-collapsed');
   })
 })
+
+TiltImage();
