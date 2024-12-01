@@ -30,7 +30,7 @@ function updateAnimations(event) {
 
 images.length && images.forEach(image => {
 	image.addEventListener('mousemove', (event) => {
-		const container = event.target.closest('.tilt-images-container');
+		const container = event.target.closest('.tilt-image-container');
 		container.classList.add('is-hovered');
 		window.requestAnimationFrame(() => {
 			updateAnimations(event)
@@ -38,7 +38,7 @@ images.length && images.forEach(image => {
 	})
 
 	image.addEventListener('mouseout', () => {
-		const container = event.target.closest('.tilt-images-container');
+		const container = event.target.closest('.tilt-image-container');
 		container.classList.remove('is-hovered');
 		resetImageTransform();
 	})
