@@ -19,6 +19,10 @@
 	--transformY: 0;
 }
 
+html {
+  scroll-behavior: smooth;
+}
+
 body {
   font-family: "Open Sans", system-ui;
   font-optical-sizing: auto;
@@ -114,6 +118,15 @@ body {
   }
 }
 
+.header__copy > span:last-child {
+  margin-top: 10px;
+  font-size: 16px;
+
+  @media (min-width: 768px) {
+    font-size: 18px;
+  }
+}
+
 .header__link-button {
  display: flex;
  align-items: center;
@@ -130,11 +143,11 @@ body {
 
 
  .is-collapsed .header__copy {
-    height: 60vw;
+    height: 80vw;
     opacity: 1;
 
     @media (min-width: 768px) {
-      height: 15vw;
+      height: 20vw;
     }
   }
 
