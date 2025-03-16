@@ -37,7 +37,7 @@ images.length && images.forEach(image => {
 		})
 	})
 
-	image.addEventListener('mouseout', () => {
+	image.addEventListener('mouseout', (event) => {
 		const container = event.target.closest('.tilt-image-container');
 		container.classList.remove('is-hovered');
 		resetImageTransform();
