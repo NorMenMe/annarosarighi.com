@@ -53,6 +53,7 @@ body {
 
   @media (min-width: 768px) {
     font-size: 46px;
+    margin-bottom: 0;
   }
 
   @media (min-width: 1200px) {
@@ -155,11 +156,11 @@ body {
 .header__copy {
   overflow: hidden;
   height: 0;
-  font-size: 16px;
   opacity: 0;
+  margin: 0;
+  font-size: 16px;
   transition: height 800ms ease, opacity 400ms ease;
   font-weight: 300;
-  margin-top: 1.9em;
   display: flex;
   row-gap: 5px;
   flex-direction: column;
@@ -169,9 +170,21 @@ body {
   }
 
   @media (min-width: 1200px) {
-      font-size: 20px;
+    font-size: 20px;
+    line-height: 1.1;
   }
 }
+
+.is-collapsed .header__copy {
+  height: 80vw;
+  opacity: 1;
+  margin-top: 30px;
+
+  @media (min-width: 768px) {
+    height: 20vw;
+  }
+}
+
 
 .header__copy > span:last-child {
   margin-top: 10px;
@@ -179,6 +192,7 @@ body {
 
   @media (min-width: 768px) {
     font-size: 18px;
+    margin-top: 5px;
   }
 }
 
@@ -209,16 +223,6 @@ body {
   text-align: center;
 }
 
-
- .is-collapsed .header__copy {
-    height: 80vw;
-    opacity: 1;
-
-    @media (min-width: 768px) {
-      height: 20vw;
-    }
-  }
-
 .header__copy strong {
   font-weight: 400;
   opacity: 0.3;
@@ -235,7 +239,7 @@ body {
 
   @media (min-width: 768px) {
   padding: 0 30px;
-  margin-top: 50px;
+  margin-top: 100px;
   }
 }
 
