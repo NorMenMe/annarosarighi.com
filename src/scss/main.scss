@@ -200,6 +200,7 @@ body {
   margin: 0 auto;
   display: flex;
   align-items: center;
+  justify-content: center;
   width: 150px;
   height: 150px;
   border: 3px solid #fff;
@@ -399,6 +400,7 @@ body {
   display: block;
   width: fit-content;
   margin: 0 auto;
+  cursor: not-allowed;
 }
 
 .tilt-image img {
