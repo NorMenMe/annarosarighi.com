@@ -1,236 +1,14 @@
+@use 'reset.scss';
 @use 'base.scss';
+@use 'header.scss';
 @use "./font-face.scss" as *;
 @use "./tilt-image.scss" as *;
 
-@keyframes ani-in {
+main {
+  padding-block-end: 15px;
 
-  0% {
-    transform: translate(0, 3rem);
-  }
-
-  100% {
-    transform: translate(0, 0);
-  }
-}
-
-:root {
-	--transformX: 0;
-	--transformY: 0;
-}
-
-html {
-  scroll-behavior: smooth;
-}
-
-body {
-  font-family: "Open Sans", system-ui;
-  font-optical-sizing: auto;
-  background-color: #F5F5F5;
-}
-
-.header {
-  width: fit-content;
-  margin: 40px auto 0;
-  padding: 10px;
-
-  @media (min-width: 768px) {
-    margin-top: 50px;
-  }
-
-  @media (min-width: 1200px) {
-      margin-top: 60px;
-  }
-
-  &.ani-in {
-    animation: ani-in 1000ms ease;
-  }
-}
-
-.header__heading {
-  font-size: 36px;
-  color: rgba(0, 0, 0, 0.7);
-  transition: color 500ms ease-in;
-
-  @media (min-width: 768px) {
-    font-size: 46px;
-    margin-bottom: 0;
-  }
-
-  @media (min-width: 1200px) {
-    font-size: 80px;
-  }
-
-  .is-collapsed & {
-    color: rgba(0, 0, 0, 1);
-  }
-}
-
-.header__button {
-  font-size: inherit;
-  color: currentColor;
-  font-family: inherit;
-  padding: 0;
-  text-align: start;
-  cursor: pointer;
-  background-color: inherit;
-  border: none;
-  width: 100%;
-  position: relative;
-
-  &:active {
-    cursor: grabbing;
-  }
-}
-
-.header__button::after {
-  content: '';
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  width: 100%;
-  height: 5px;
-  background-color: rgb(245, 245, 245, 0.8);
-  border-radius: 2px;
-  border-top: 3px solid #fff;
-  opacity: 0;
-  transition: all 400ms ease-out;
-
-  @media (min-width: 1200px) {
-    border-top: 5px solid #fff;
-  }
-}
-
-.is-collapsed .header__button:after {
-  opacity: 1;
-  bottom: -15px;
-}
-
-.header__icon {
-  position: absolute;
-  top: -16px;
-  right: 0;
-  width: 0.5em;
-  height: 0.5em;
-
-  @media (min-width: 768px) {
-    left: 340px;
-    top: -21px;
-  }
-
-  @media (min-width: 1200px) {
-    left: 600px;
-    top: -35px;
-    width: 0.5em;
-  }
-}
-
-.header__icon-plus {
-  transition: opacity 250ms ease-in;
-
-  .is-collapsed & {
-    opacity: 0;
-  }
-}
-
-.header__icon-minus {
-  position: absolute;
-  top: 20px;
-  width: 100%;
-  right: 0;
-  opacity: 0;
-  transition: opacity 250ms ease-in;
-
-  @media (min-width: 768px) {
-    top: 26px;
-  }
-
-  @media (min-width: 1200px) {
-    top: 46px;
-  }
-
-  .is-collapsed & {
-    opacity: 1;
-  }
-}
-
-.header__copy {
-  overflow: hidden;
-  height: 0;
-  opacity: 0;
-  margin: 0;
-  font-size: 16px;
-  transition: height 800ms ease, opacity 400ms ease;
-  font-weight: 300;
-  display: flex;
-  row-gap: 5px;
-  flex-direction: column;
-
-  @media (min-width: 768px) {
-    font-size: 18px;
-  }
-
-  @media (min-width: 1200px) {
-    font-size: 20px;
-    line-height: 1.1;
-  }
-}
-
-.is-collapsed .header__copy {
-  height: 80vw;
-  opacity: 1;
-  margin-top: 30px;
-
-  @media (min-width: 768px) {
-    height: 20vw;
-  }
-}
-
-
-.header__copy > span:last-child {
-  margin-top: 10px;
-  font-size: 16px;
-
-  @media (min-width: 768px) {
-    font-size: 18px;
-    margin-top: 5px;
-  }
-}
-
-.header__link-button {
-  margin: 0 auto;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 150px;
-  height: 150px;
-  border: 3px solid #fff;
-  text-decoration: none;
-  color: rgba(0, 0, 0, 0.5);
-  border-radius: 50%;
-
-  &:hover {
-    text-decoration: underline;
-    text-underline-offset: 3px;
-    text-decoration-thickness: 2px;
-  }
-
-  @media (min-width: 768px) {
-    margin: revert;
-    margin-left: auto;
-  }
-}
-
-.header__link-button span {
-  text-align: center;
-}
-
-.header__copy strong {
-  font-weight: 400;
-  opacity: 0.3;
-  transition: opacity 1000ms ease-out;
-
-  .is-collapsed & {
-    opacity: 1;
+  @media (min-width: 768px) {  
+    padding-block-end: 25px;
   }
 }
 
@@ -386,7 +164,7 @@ body {
 
   @media (min-width: 767px) {  
     scroll-margin-top: 0.5rem;
-}
+  }
 }
 
 .tilt-image-container.is-hovered img {
@@ -406,4 +184,33 @@ body {
 .tilt-image img {
   max-width: 100%;
   display: block;
+}
+
+.back-to-top__container {
+  text-align: center;
+  margin: 1.5em auto 0;
+
+  @media (min-width: 768px) {  
+    text-align: end;
+    padding-inline-end: 10px;
+  }
+}
+
+.back-to-top__button {
+  border-radius: 50%;
+  border: 3px solid #fff;
+
+  @media (min-width: 768px) {  
+    right: 50px;
+    bottom: 50px;
+  }
+
+  @media (min-width: 1200px) {  
+    position: fixed;
+  }
+}
+
+.back-to-top__icon {
+  width: 6em;
+  height: 6em;
 }
