@@ -208,6 +208,10 @@ main {
   @media (min-width: 1200px) {  
     position: fixed;
   }
+
+  &.hidden {
+    display: none;
+  }
 }
 
 .back-to-top__icon {
