@@ -1,7 +1,7 @@
 import { LazerLoader } from './lazer-loader.js';
 import { TiltImage } from './tilt-image.js';
 
-//  Into-Viewport Animation
+//  INTO-VIEWPORT ANIMATION
 
 const allLists = document.querySelectorAll('.portfolio__header');
 
@@ -20,7 +20,7 @@ if (allLists.length) {
   Lazer.init();
 }
 
-// Dropdown 
+// DROPDOWN 
 
 const buttons = document.querySelectorAll('.header__button');
 
@@ -53,54 +53,59 @@ buttons.length && buttons.forEach( button => {
 
 TiltImage();
 
-// Back-to-top Button
+// BACK TO BUTTON
 
-const BREAKPOINTDESKTOP = 1200;
-const TRESHOLD = -1500;
+const BREAKPOINTDESKTOP = 1249;
+const TRESHOLD = 1500;
 const backToTop = document.querySelector('.back-to-top__button');
 
-
-const hideBackToTop = (params) => {
-  backToTop.classList.add('hidden');
-}
-
-const showBackToTop = (params) => {
+const showBackToTop = () => {
     backToTop.classList.remove('hidden');
 }
 
-const handleOnScroll = ( ) => {
-  const targetElement = document.querySelector('body');
-
-  if (targetElement) {
-    const distanceFromWindowTop = targetElement.getBoundingClientRect().y;
-
-    if (Math.sign(distanceFromWindowTop) === -1 && distanceFromWindowTop < TRESHOLD) {
-      showBackToTop();
-    } else {
-      hideBackToTop();
-    }
-  }
-}
-
-const scrollOnClick = () => {
+const scrollOnClick = (event) => {
   window.scrollTo({
   top: 0,
   behavior: "smooth",
   });
 }
 
+// throttle request animation frame enhancing performance, matching browser's display rate of 60fps
+const throttleRAF = (fn) => {
+  let rafId = null;
+  let isWaiting = false;
+  
+  return (...args) => {
+    if (isWaiting) return;
+    
+    isWaiting = true;
+    rafId = requestAnimationFrame(() => {
+      fn.apply(this, args);
+      isWaiting = false;
+    });
+  };
+};
+
+const handleOnScroll = ( ) => {
+  if (window.scrollY > TRESHOLD) { 
+    showBackToTop();
+  } else {
+    hideBackToTop();
+  }
+}
+
 const bindEvents = ( ) => {
-  document.addEventListener('scroll', handleOnScroll);
+  document.addEventListener('scroll', throttleRAF(handleOnScroll));
   backToTop.addEventListener('click', scrollOnClick);
 }
 
-const hideOnDesktop = ( ) => {
- window.innerWidth >= BREAKPOINTDESKTOP 
-    ? hideBackToTop()
-    : '';
+const hideBackToTop = () => {
+ if (window.innerWidth >= BREAKPOINTDESKTOP) { // default backToTop is hidden
+   backToTop.classList.add('hidden');
+ }
 }
 
-if ( backToTop ) {
-  hideOnDesktop();
+if (backToTop) {
+  hideBackToTop();
   bindEvents();
 }
