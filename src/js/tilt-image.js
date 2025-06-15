@@ -1,7 +1,7 @@
 export const TiltImage = function () {
 
 	const root  = document.documentElement;
-	const images = document.querySelectorAll('img');
+	const images = document.querySelectorAll('.tilt-image-container img');
 	let ticking = false;
 
 function resetImageTransform() {
