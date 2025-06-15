@@ -199,6 +199,7 @@ main {
 .back-to-top__button {
   border-radius: 50%;
   border: 3px solid #fff;
+  cursor: pointer;
 
   @media (min-width: 768px) {  
     right: 50px;
@@ -211,6 +212,10 @@ main {
 
   &.hidden {
     display: none;
+  }
+
+  &:active {
+    cursor: grabbing;
   }
 }
 

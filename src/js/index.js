@@ -55,19 +55,22 @@ TiltImage();
 
 // BACK TO BUTTON
 
-const BREAKPOINTDESKTOP = 1249;
-const TRESHOLD = 1500;
+const BREAKPOINT_BACKTOTOP = 1249;
+const SCROLL_TRESHOLD = 1500;
 const backToTop = document.querySelector('.back-to-top__button');
 
 const showBackToTop = () => {
     backToTop.classList.remove('hidden');
 }
 
-const scrollOnClick = (event) => {
-  window.scrollTo({
-  top: 0,
-  behavior: "smooth",
-  });
+const hideBackToTop = () => {
+ if (window.innerWidth >= BREAKPOINT_BACKTOTOP) { // default backToTop is hidden
+   backToTop.classList.add('hidden');
+ }
+}
+
+const scrollOnClick = () => {
+  window.scrollTo({ top: 0, behavior: "smooth" });
 }
 
 // throttle request animation frame enhancing performance, matching browser's display rate of 60fps
@@ -87,7 +90,7 @@ const throttleRAF = (fn) => {
 };
 
 const handleOnScroll = ( ) => {
-  if (window.scrollY > TRESHOLD) { 
+  if (window.scrollY > SCROLL_TRESHOLD) { 
     showBackToTop();
   } else {
     hideBackToTop();
@@ -97,12 +100,6 @@ const handleOnScroll = ( ) => {
 const bindEvents = ( ) => {
   document.addEventListener('scroll', throttleRAF(handleOnScroll));
   backToTop.addEventListener('click', scrollOnClick);
-}
-
-const hideBackToTop = () => {
- if (window.innerWidth >= BREAKPOINTDESKTOP) { // default backToTop is hidden
-   backToTop.classList.add('hidden');
- }
 }
 
 if (backToTop) {
