@@ -1,5 +1,5 @@
 const DEFAULT_CONFIG = {
-  rootMargin: "0px",
+  rootMargin: '0px',
   threshold: 0,
 };
 
@@ -42,13 +42,13 @@ export class ImageLazerLoader extends LazerLoader {
     const nodes = [...target.childNodes];
 
     nodes.forEach((node) => {
-      if (node.nodeName === "SOURCE") {
-        node.setAttribute("srcset", node.dataset.srcset);
-        node.removeAttribute("data-srcset");
+      if (node.nodeName === 'SOURCE') {
+        node.setAttribute('srcset', node.dataset.srcset);
+        node.removeAttribute('data-srcset');
       }
-      if (node.nodeName === "IMG") {
-        node.setAttribute("src", node.dataset.src);
-        node.removeAttribute("data-src");
+      if (node.nodeName === 'IMG') {
+        node.setAttribute('src', node.dataset.src);
+        node.removeAttribute('data-src');
       }
     });
 
@@ -63,21 +63,21 @@ export class APILazerLoader extends LazerLoader {
     this.loadAPI = props.loadAPI;
     this.queue = [];
     this.api = null;
-    this.apiState = "not loaded";
+    this.apiState = 'not loaded';
   }
 
   handleIntersection = (entry) => {
     const { target } = entry;
-    if (this.apiState === "loaded") {
+    if (this.apiState === 'loaded') {
       this.cb(this.api, target);
-    } else if (this.apiState === "fetching") {
+    } else if (this.apiState === 'fetching') {
       this.queue.push(target);
-    } else if (this.apiState === "not loaded") {
-      this.apiState = "fetching";
+    } else if (this.apiState === 'not loaded') {
+      this.apiState = 'fetching';
       this.queue.push(target);
       this.loadAPI().then((api) => {
         this.api = api;
-        this.apiState = "loaded";
+        this.apiState = 'loaded';
         this.queue.forEach((target) => {
           this.cb(this.api, target);
         });

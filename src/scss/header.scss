@@ -11,8 +11,8 @@
 }
 
 :root {
-	--transformX: 0;
-	--transformY: 0;
+  --transformX: 0;
+  --transformY: 0;
 }
 
 html {
@@ -35,7 +35,7 @@ body {
   }
 
   @media (min-width: 1200px) {
-      margin-top: 60px;
+    margin-top: 60px;
   }
 
   &.ani-in {
