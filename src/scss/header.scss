@@ -104,25 +104,26 @@ body {
 
 .header__icon {
   position: absolute;
-  top: -16px;
+  top: 0;
   right: 0;
   width: 0.5em;
   height: 0.5em;
 
   @media (min-width: 768px) {
     left: 340px;
-    top: -21px;
   }
 
   @media (min-width: 1200px) {
     left: 600px;
-    top: -35px;
+    position: absolute;
     width: 0.5em;
   }
 }
 
 .header__icon-plus {
-  transition: opacity 250ms ease-in;
+  position: absolute;
+  top: 0;
+  transition: opacity 150ms ease-in;
 
   .is-collapsed & {
     opacity: 0;
@@ -131,19 +132,11 @@ body {
 
 .header__icon-minus {
   position: absolute;
-  top: 20px;
-  width: 100%;
+  top: 0;
   right: 0;
+  width: 100%;
   opacity: 0;
-  transition: opacity 250ms ease-in;
-
-  @media (min-width: 768px) {
-    top: 26px;
-  }
-
-  @media (min-width: 1200px) {
-    top: 46px;
-  }
+  transition: opacity 150ms ease-in;
 
   .is-collapsed & {
     opacity: 1;
@@ -173,13 +166,9 @@ body {
 }
 
 .is-collapsed .header__copy {
-  height: 80vw;
+  height: 265px;
   opacity: 1;
   margin-top: 30px;
-
-  @media (min-width: 768px) {
-    height: 8vw;
-  }
 }
 
 
