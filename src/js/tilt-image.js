@@ -1,45 +1,51 @@
-export const TiltImage = function () {
+export const TiltImage = () => {
   const root = document.documentElement;
-  const images = document.querySelectorAll('.tilt-image-container img');
+  const containerTarget = document.querySelector('.tilt-image-container');
+  const images = containerTarget.querySelectorAll('img');
   let ticking = false;
 
-  function resetImageTransform() {
+  const resetImageTransform = () => {
     const mousePos = { x: 0, y: 0 };
     setImageTransform(mousePos);
-  }
+  };
 
-  function setImageTransform(mouseCoordinates) {
+  const resetTiltEffect = () => {
+    containerTarget.classList.remove('is-hovered');
+    resetImageTransform();
+  };
+
+  const setImageTransform = (mouseCoordinates) => {
     root.style.setProperty('--transformX', mouseCoordinates.y);
     root.style.setProperty('--transformY', mouseCoordinates.x);
-  }
+  };
 
-  function getMouseCoordinates(event) {
+  const getMouseCoordinates = (event) => {
     const xPos = (event.clientX / document.body.clientWidth) * 100 - 50;
     const targetHeight = event.target.clientHeight;
     const yPos = (event.clientY / targetHeight) * 100 - 50;
     const mouseCoordinates = { x: xPos, y: yPos };
     return mouseCoordinates;
-  }
+  };
 
-  function updateAnimations(event) {
+  const updateAnimations = (event) => {
     setImageTransform(getMouseCoordinates(event));
     ticking = false;
-  }
+  };
 
-  images.length &&
-    images.forEach((image) => {
-      image.addEventListener('mousemove', (event) => {
-        const container = event.target.closest('.tilt-image-container');
-        container.classList.add('is-hovered');
-        window.requestAnimationFrame(() => {
-          updateAnimations(event);
-        });
-      });
-
-      image.addEventListener('mouseout', (event) => {
-        const container = event.target.closest('.tilt-image-container');
-        container.classList.remove('is-hovered');
-        resetImageTransform();
-      });
+  const setTiltEffect = (event) => {
+    containerTarget.classList.add('is-hovered');
+    window.requestAnimationFrame(() => {
+      updateAnimations(event);
     });
+  };
+
+  const bindEvents = () => {
+    images.forEach((image) => {
+      image.addEventListener('mousemove', setTiltEffect);
+      image.addEventListener('mouseout', resetTiltEffect);
+    });
+  };
+
+  if (!images.length) return;
+  bindEvents();
 };

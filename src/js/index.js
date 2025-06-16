@@ -55,6 +55,8 @@ buttons.length &&
     button.addEventListener('mouseup', handleOnMouseUp);
   });
 
+// TILT-IMAGE EFFECT
+
 TiltImage();
 
 // BACK TO BUTTON
