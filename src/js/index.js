@@ -12,7 +12,7 @@
 */
 
 import { LazerLoader } from './lazer-loader.js';
-import { TiltImage } from './tilt-image.js';
+import TiltImage from './tilt-image.js';
 
 //  INTO-VIEWPORT ANIMATION
 
@@ -70,7 +70,16 @@ buttons.length &&
 
 // TILT-IMAGE EFFECT
 
-TiltImage();
+const containerTarget = document.querySelector('.tilt-image-container');
+const instancesTiltImage = [];
+
+const instanceTiltImage = new TiltImage({
+  containerTarget: containerTarget,
+  images: containerTarget.querySelectorAll('img'),
+});
+
+instanceTiltImage.init();
+instancesTiltImage.push(instanceTiltImage);
 
 // BACK TO BUTTON
 
