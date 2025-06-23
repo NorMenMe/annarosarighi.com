@@ -1,25 +1,22 @@
-export const TiltImage = () => {
-  const root = document.documentElement;
-  const containerTarget = document.querySelector('.tilt-image-container');
-  const images = containerTarget.querySelectorAll('img');
-  let ticking = false;
+export default class TiltImage {
+  constructor(params) {
+    this.root = document.documentElement;
+    this.containerTarget = params.containerTarget;
+    this.images = params.images;
+    this.ticking = false;
+  }
 
-  const resetImageTransform = () => {
+  resetImageTransform = () => {
     const mousePos = { x: 0, y: 0 };
-    setImageTransform(mousePos);
+    this.setImageTransform(mousePos);
   };
 
-  const resetTiltEffect = () => {
-    containerTarget.classList.remove('is-hovered');
-    resetImageTransform();
+  resetTiltEffect = () => {
+    this.containerTarget.classList.remove('is-hovered');
+    this.resetImageTransform();
   };
 
-  const setImageTransform = (mouseCoordinates) => {
-    root.style.setProperty('--transformX', mouseCoordinates.y);
-    root.style.setProperty('--transformY', mouseCoordinates.x);
-  };
-
-  const getMouseCoordinates = (event) => {
+  getMouseCoordinates = (event) => {
     const xPos = (event.clientX / document.body.clientWidth) * 100 - 50;
     const targetHeight = event.target.clientHeight;
     const yPos = (event.clientY / targetHeight) * 100 - 50;
@@ -27,25 +24,32 @@ export const TiltImage = () => {
     return mouseCoordinates;
   };
 
-  const updateAnimations = (event) => {
-    setImageTransform(getMouseCoordinates(event));
-    ticking = false;
+  setImageTransform = (mouseCoordinates) => {
+    this.root.style.setProperty('--transformX', mouseCoordinates.y);
+    this.root.style.setProperty('--transformY', mouseCoordinates.x);
   };
 
-  const setTiltEffect = (event) => {
-    containerTarget.classList.add('is-hovered');
+  updateAnimations = (event) => {
+    this.setImageTransform(this.getMouseCoordinates(event));
+    this.ticking = false;
+  };
+
+  setTiltEffect = (event) => {
+    this.containerTarget.classList.add('is-hovered');
     window.requestAnimationFrame(() => {
-      updateAnimations(event);
+      this.updateAnimations(event);
     });
   };
 
-  const bindEvents = () => {
-    images.forEach((image) => {
-      image.addEventListener('mousemove', setTiltEffect);
-      image.addEventListener('mouseout', resetTiltEffect);
+  bindEvents = () => {
+    this.images.forEach((image) => {
+      image.addEventListener('mousemove', this.setTiltEffect);
+      image.addEventListener('mouseout', this.resetTiltEffect);
     });
   };
 
-  if (!images.length) return;
-  bindEvents();
-};
+  init = () => {
+    if (!this.images.length) return;
+    this.bindEvents();
+  };
+}
