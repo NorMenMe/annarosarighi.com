@@ -46,7 +46,7 @@ main {
   background-color: #fff;
   max-width: 270px;
   transition: clip-path 1s ease;
-  margin: 1rem auto;
+  margin: 1rem 15px;
 
   @media (min-width: 768px) {  
     max-width: revert;

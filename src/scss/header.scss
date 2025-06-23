@@ -41,11 +41,10 @@ body {
 
 .header {
   width: fit-content;
-  margin: 40px auto 0;
-  padding: 10px;
+  margin: 40px 15px 0;
 
   @media (min-width: 768px) {
-    margin-top: 50px;
+    margin: 50px auto 0;
   }
 
   @media (min-width: 1200px) {
@@ -81,6 +80,7 @@ body {
   font-size: inherit;
   color: currentColor;
   font-family: inherit;
+  font-weight: inherit;
   padding: 0;
   text-align: start;
   cursor: pointer;
@@ -88,6 +88,9 @@ body {
   border: none;
   width: 100%;
   position: relative;
+  display: flex;
+  justify-content: flex-start;
+  column-gap: 15px;
 
   &:active {
     cursor: grabbing;
@@ -118,20 +121,15 @@ body {
 }
 
 .header__icon {
-  position: absolute;
+  position: relative;
   top: 0;
   right: 0;
   width: 0.5em;
   height: 0.5em;
 
   @media (min-width: 768px) {
-    left: 340px;
-  }
-
-  @media (min-width: 1200px) {
-    left: 600px;
-    position: absolute;
-    width: 0.5em;
+    width: 0.35em;
+    height: 0.35em;
   }
 }
 
@@ -166,7 +164,6 @@ body {
   font-size: 16px;
   font-weight: 400;
   transition: height 800ms ease, opacity 600ms ease;
-  font-weight: 300;
   display: flex;
   row-gap: 5px;
   flex-direction: column;
@@ -206,7 +203,7 @@ body {
   width: 150px;
   height: 150px;
   text-decoration: none;
-  color: rgba(0, 0, 0, 0.5);
+  color: currentColor;
   position: relative;
 
   &:hover {
@@ -242,6 +239,7 @@ body {
 
 .header__copy strong {
   font-weight: 400;
+  font-style: italic;
   opacity: 0.3;
   transition: opacity 1000ms ease-out;
 
