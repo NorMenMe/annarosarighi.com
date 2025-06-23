@@ -2,14 +2,11 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!-- displays site properly based on user's device -->
-
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon-32x32.png">
-
     <title>Portfolio of Annarosa Righi</title>
     <link rel="stylesheet" href="styles/main.css">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Epilogue:wght@500;700&display=swap" rel="stylesheet">
   </head>
   <body>
     <header class="header ani-in">
@@ -46,7 +43,7 @@
         </span>
       </p>
       <a href="#teaser-event" class="header__link-button">
-        <span>upcoming exhibition</span>
+        <span>current exhibition</span>
       </a>
     </header>
     <main id="main-content">
@@ -92,7 +89,18 @@
           <img src="assets/flyer-vernissage.png" alt="image of a house">
         </picture>
       </div>
+      <div class="back-to-top__container">
+        <button class="back-to-top__button" type="button">
+          <svg class="back-to-top__icon" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" xml:space="preserve" aria-hidden="true">
+            <path fill="#fff" fill-rule="evenodd" d="M12 3a1 1 0 0 1 .707.293l7 7a1 1 0 0 1-1.414 1.414L13 6.414V20a1 1 0 1 1-2 0V6.414l-5.293 5.293a1 1 0 0 1-1.414-1.414l7-7A1 1 0 0 1 12 3Z" clip-rule="evenodd"/>
+          </svg>
+          <span class="sr-only">back to the top</span>
+        </button>
+      </div>
     </main>
+    <footer class="footer">
+      <p class="footer__copy">&copy; 2025, Annarosa Righi. All rights reserved.</p>
+    </footer>
   </body>
   <script type="module" src="./js/index.js"></script>
 </html>

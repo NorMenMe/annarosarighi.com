@@ -1,7 +1,21 @@
-import { LazerLoader } from './lazer-loader.js';
-import { TiltImage } from './tilt-image.js';
+/*
+  <portfolio of Annarosa Righi>
+  Copyright (C) 2025 by Norman Metz
 
-//  Into-Viewport Animation
+  Web:    www.normanmetz.com
+  Email:  info@normanmetz.com
+
+  Permission granted to use the files associated with this
+  website only on your webserver.
+
+  Changes to these files are PROHIBITED due to license restrictions.
+*/
+
+import { LazerLoader } from './lazer-loader.js';
+import TiltImage from './tilt-image.js';
+
+//  INTO-VIEWPORT ANIMATION
+
 const allLists = document.querySelectorAll('.portfolio__header');
 
 if (allLists.length) {
@@ -19,12 +33,7 @@ if (allLists.length) {
   Lazer.init();
 }
 
-// Dropdown 
-
-// listen on mousedown
-// on fire change the cursor style from grab to grabbing
- // on button listen on mousedown
-  // if mousedown change cursor
+// DROPDOWN
 
 const buttons = document.querySelectorAll('.header__button');
 
@@ -32,27 +41,97 @@ const handleOnClick = (event) => {
   const currentClickedButton = event.currentTarget;
   const container = currentClickedButton.closest('.header');
 
-  let isCollapsed = currentClickedButton.getAttribute('aria-expanded') === 'true';
+  let isCollapsed =
+    currentClickedButton.getAttribute('aria-expanded') === 'true';
   isCollapsed = !isCollapsed;
   currentClickedButton.setAttribute('aria-expanded', isCollapsed);
 
-  isCollapsed ? container.classList.add('is-collapsed') : container.classList.remove('is-collapsed');
-}
+  isCollapsed
+    ? container.classList.add('is-collapsed')
+    : container.classList.remove('is-collapsed');
+};
 
 const handleOnMouseDown = (event) => {
   const currentClickedButton = event.currentTarget;
   currentClickedButton.style.cursor = 'grabbing';
-}
+};
 
 const handleOnMouseUp = (event) => {
   const currentClickedButton = event.currentTarget;
   currentClickedButton.style.cursor = 'pointer';
+};
+
+buttons.length &&
+  buttons.forEach((button) => {
+    button.addEventListener('click', handleOnClick);
+    button.addEventListener('mousedown', handleOnMouseDown);
+    button.addEventListener('mouseup', handleOnMouseUp);
+  });
+
+// TILT-IMAGE EFFECT
+
+const containerTarget = document.querySelector('.tilt-image-container');
+const instancesTiltImage = [];
+
+const instanceTiltImage = new TiltImage({
+  containerTarget: containerTarget,
+  images: containerTarget.querySelectorAll('img'),
+});
+
+instanceTiltImage.init();
+instancesTiltImage.push(instanceTiltImage);
+
+// BACK TO BUTTON
+
+const BREAKPOINT_BACKTOTOP = 1249;
+const SCROLL_TRESHOLD = 1500;
+const backToTop = document.querySelector('.back-to-top__button');
+
+const showBackToTop = () => {
+  backToTop.classList.remove('hidden');
+};
+
+const hideBackToTop = () => {
+  if (window.innerWidth >= BREAKPOINT_BACKTOTOP) {
+    // default backToTop is hidden
+    backToTop.classList.add('hidden');
+  }
+};
+
+const scrollOnClick = () => {
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+};
+
+// throttle request animation frame enhancing performance, matching browser's display rate of 60fps
+const throttleRAF = (fn) => {
+  let rafId = null;
+  let isWaiting = false;
+
+  return (...args) => {
+    if (isWaiting) return;
+
+    isWaiting = true;
+    rafId = requestAnimationFrame(() => {
+      fn.apply(this, args);
+      isWaiting = false;
+    });
+  };
+};
+
+const handleOnScroll = () => {
+  if (window.scrollY > SCROLL_TRESHOLD) {
+    showBackToTop();
+  } else {
+    hideBackToTop();
+  }
+};
+
+const bindEvents = () => {
+  document.addEventListener('scroll', throttleRAF(handleOnScroll));
+  backToTop.addEventListener('click', scrollOnClick);
+};
+
+if (backToTop) {
+  hideBackToTop();
+  bindEvents();
 }
-
-buttons.length && buttons.forEach( button => {
-  button.addEventListener('click', handleOnClick)
-  button.addEventListener('mousedown', handleOnMouseDown);
-  button.addEventListener('mouseup', handleOnMouseUp);
-})
-
-TiltImage();
