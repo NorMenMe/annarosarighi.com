@@ -34,7 +34,7 @@ html {
 }
 
 body {
-  font-family: "Open Sans", system-ui;
+  font-family: "Roboto", sans-serif;
   font-optical-sizing: auto;
   background-color: #F5F5F5;
 }
@@ -59,16 +59,17 @@ body {
 
 .header__heading {
   font-size: 36px;
+  font-weight: 800;
   color: rgba(0, 0, 0, 0.7);
   transition: color 500ms ease-in;
 
   @media (min-width: 768px) {
-    font-size: 46px;
+    font-size: 80px;
     margin-bottom: 0;
   }
 
   @media (min-width: 1200px) {
-    font-size: 80px;
+    font-size: 110px;
   }
 
   .is-collapsed & {
@@ -163,6 +164,7 @@ body {
   opacity: 0;
   margin: 0;
   font-size: 16px;
+  font-weight: 400;
   transition: height 800ms ease, opacity 600ms ease;
   font-weight: 300;
   display: flex;
