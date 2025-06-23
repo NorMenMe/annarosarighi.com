@@ -1,3 +1,16 @@
+/*
+  <portfolio of Annarosa Righi>
+  Copyright (C) 2025 by Norman Metz
+
+  Web:    www.normanmetz.com
+  Email:  info@normanmetz.com
+
+  Permission granted to use the files associated with this
+  website only on your webserver.
+
+  Changes to these files are PROHIBITED due to license restrictions.
+*/
+
 import { LazerLoader } from './lazer-loader.js';
 import { TiltImage } from './tilt-image.js';
 
