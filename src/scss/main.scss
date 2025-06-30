@@ -1,8 +1,8 @@
-@use 'reset.scss';
-@use 'base.scss';
-@use "./font-face.scss" as *;
-@use 'header.scss';
-@use 'footer.scss';
+@use '_reset.scss';
+@use "_font-face.scss" as *;
+@use '_base.scss';
+@use '_header.scss';
+@use '_footer.scss';
 
 main {
   padding-block-end: 15px;
@@ -198,7 +198,7 @@ main {
 
 .back-to-top__button {
   border-radius: 50%;
-  border: 3px solid #fff;
+  border: 3px solid rgba(0, 0, 0, 0.7);
   cursor: pointer;
 
   @media (min-width: 768px) {  
