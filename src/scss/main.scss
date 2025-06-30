@@ -188,30 +188,32 @@ main {
 
 .back-to-top__container {
   text-align: center;
-  margin: 1.5em auto 0;
-
-  @media (min-width: 768px) {  
+  margin-block-start: 15px;
+	
+  @media (min-width: 768px) {
     text-align: end;
-    padding-inline-end: 10px;
+    padding-inline-end: 15px;
+    margin-block-start: 25px;
   }
 }
 
 .back-to-top__button {
   border-radius: 50%;
-  border: 3px solid rgba(0, 0, 0, 0.7);
+  background-color: #fff;
   cursor: pointer;
-
-  @media (min-width: 768px) {  
+  padding: 15px;
+  display: inline-flex;
+  align-items: center;
+  transition: opacity 400ms ease-in-out;
+  
+  @media (min-width: 1200px) {  
+    position: fixed;
     right: 50px;
     bottom: 50px;
   }
 
-  @media (min-width: 1200px) {  
-    position: fixed;
-  }
-
   &.hidden {
-    display: none;
+    opacity: 0;
   }
 
   &:active {
@@ -220,6 +222,5 @@ main {
 }
 
 .back-to-top__icon {
-  width: 6em;
-  height: 6em;
+  width: 3rem;
 }
