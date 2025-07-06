@@ -11,7 +11,8 @@
   Changes to these files are PROHIBITED due to license restrictions.
 */
 
-import { LazerLoader } from './lazer-loader.js';
+import LazerLoader from './lazer-loader.js';
+import BackToTop from './back-to-top.js';
 
 //  INTO-VIEWPORT ANIMATION
 
@@ -32,57 +33,20 @@ if (allLists.length) {
   Lazer.init();
 }
 
-// BACK TO BUTTON
+// BUTTON BACK TO TOP
 
+const buttonBackToTop = document.querySelector('.back-to-top__button');
 const BREAKPOINT_BACKTOTOP = 1249;
 const SCROLL_TRESHOLD = 1500;
-const backToTop = document.querySelector('.back-to-top__button');
 
-const showBackToTop = () => {
-  backToTop.classList.remove('hidden');
-};
+if (buttonBackToTop) {
+  const backToTopInstance = new BackToTop({
+    SCROLL_TRESHOLD,
+    BREAKPOINT_BACKTOTOP,
+    buttonBackToTop,
+  });
+  backToTopInstance.init();
 
-const hideBackToTop = () => {
-  if (window.innerWidth >= BREAKPOINT_BACKTOTOP) {
-    // default backToTop is hidden
-    backToTop.classList.add('hidden');
-  }
-};
-
-const scrollOnClick = () => {
-  window.scrollTo({ top: 0, behavior: 'smooth' });
-};
-
-// throttle request animation frame enhancing performance, matching browser's display rate of 60fps
-const throttleRAF = (fn) => {
-  let rafId = null;
-  let isWaiting = false;
-
-  return (...args) => {
-    if (isWaiting) return;
-
-    isWaiting = true;
-    rafId = requestAnimationFrame(() => {
-      fn.apply(this, args);
-      isWaiting = false;
-    });
-  };
-};
-
-const handleOnScroll = () => {
-  if (window.scrollY > SCROLL_TRESHOLD) {
-    showBackToTop();
-  } else {
-    hideBackToTop();
-  }
-};
-
-const bindEvents = () => {
-  document.addEventListener('scroll', throttleRAF(handleOnScroll));
-  backToTop.addEventListener('click', scrollOnClick);
-};
-
-if (backToTop) {
-  hideBackToTop();
-  bindEvents();
+  const backToTopInstances = [];
+  backToTopInstances.push(backToTopInstance);
 }

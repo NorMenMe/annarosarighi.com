@@ -5,7 +5,7 @@ const DEFAULT_CONFIG = {
 
 const isAbove = (entry) => entry.boundingClientRect.y < entry.rootBounds.y;
 
-export class LazerLoader {
+export default class LazerLoader {
   constructor(options) {
     this.targets = options.targets;
     this.config = Object.assign({}, DEFAULT_CONFIG, options.config);
