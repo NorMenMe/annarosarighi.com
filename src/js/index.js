@@ -37,7 +37,7 @@ if (allLists.length) {
 
 const buttonBackToTop = document.querySelector('.back-to-top__button');
 const BREAKPOINT_BACKTOTOP = 1249;
-const SCROLL_TRESHOLD = 1500;
+const SCROLL_TRESHOLD = 3500;
 
 if (buttonBackToTop) {
   const backToTopInstance = new BackToTop({
