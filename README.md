@@ -1,4 +1,4 @@
 
-## Welcome! 👋
+## Hej hej! 👋
 
-Building ui elements according to the designs from https://www.frontendmentor.io/challenges
+Building a website for my mam.
