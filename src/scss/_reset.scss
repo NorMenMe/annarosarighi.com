@@ -56,6 +56,10 @@ picture {
   max-width: 100%;
 }
 
+picture {
+  min-height: 0;
+}
+
 /* Inherit fonts for inputs and buttons */
 input, button,
 textarea, select {
