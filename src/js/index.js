@@ -16,7 +16,7 @@ import BackToTop from './back-to-top.js';
 
 //  INTO-VIEWPORT ANIMATION
 
-const allLists = document.querySelectorAll('.portfolio__header');
+const allLists = document.querySelectorAll('.header');
 
 if (allLists.length) {
   const Lazer = new LazerLoader({
@@ -63,7 +63,7 @@ document.addEventListener('DOMContentLoaded', (event) => {
     ease: 'none',
     scrollTrigger: {
       trigger: '.slider_list',
-      pin: '#main-content',
+      pin: '.slider__slider',
       pinSpacing: true,
       start: 'top 100px',
       scrub: 1,
@@ -71,10 +71,10 @@ document.addEventListener('DOMContentLoaded', (event) => {
     },
   });
 
-  gsap.to('.portfolio', {
+  gsap.to('.grid', {
     scrollTrigger: {
-      trigger: '.portfolio',
-      pinnedContainer: '#main-content',
+      trigger: '.grid',
+      pinnedContainer: '.slider__slider',
       start: 'top 50%',
       toggleActions: 'play none reset none',
     },
