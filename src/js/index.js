@@ -50,3 +50,33 @@ if (buttonBackToTop) {
   const backToTopInstances = [];
   backToTopInstances.push(backToTopInstance);
 }
+
+// SLIDER
+
+document.addEventListener('DOMContentLoaded', (event) => {
+  gsap.registerPlugin(ScrollTrigger);
+
+  let slides = gsap.utils.toArray('.slider__item');
+
+  gsap.to(slides, {
+    xPercent: -100 * (slides.length - 1),
+    ease: 'none',
+    scrollTrigger: {
+      trigger: '.slider_list',
+      pin: '#main-content',
+      pinSpacing: true,
+      start: 'top 100px',
+      scrub: 1,
+      end: '+=3000',
+    },
+  });
+
+  gsap.to('.portfolio', {
+    scrollTrigger: {
+      trigger: '.portfolio',
+      pinnedContainer: '#main-content',
+      start: 'top 50%',
+      toggleActions: 'play none reset none',
+    },
+  });
+});

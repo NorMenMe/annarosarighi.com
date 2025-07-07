@@ -2,6 +2,7 @@
 @use "_font-face.scss" as *;
 @use '_base.scss';
 @use '_header.scss';
+@use '_slider.scss';
 @use '_footer.scss';
 
 main {
@@ -154,36 +155,6 @@ main {
 
 .portfolio__image:last-child > img {
   height: auto;
-}
-
-.tilt-image-container {
-  scroll-margin-top: 1rem;
-  margin-top: 5rem;
-  color: #333;
-  text-align: center;
-
-  @media (min-width: 768px) {  
-    scroll-margin-top: 0.5rem;
-  }
-}
-
-.tilt-image-container.is-hovered img {
-  will-change: transform;
-  transform-style: preserve-3d;
-  transform: perspective(800px) rotateX( calc(var(--transformX) * -1deg) ) rotateY( calc(var(--transformY) * 1deg) ) scale3d(1, 1, 1);
-  transition: transform .25s ease-out;
-}
-
-.tilt-image {
-  display: block;
-  width: fit-content;
-  margin: 0 auto;
-  cursor: not-allowed;
-}
-
-.tilt-image img {
-  max-width: 100%;
-  display: block;
 }
 
 .back-to-top__container {
