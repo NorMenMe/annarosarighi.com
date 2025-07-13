@@ -63,22 +63,13 @@ document.addEventListener('DOMContentLoaded', (event) => {
     xPercent: -100 * (slides.length - 1),
     ease: 'none',
     scrollTrigger: {
-      trigger: '.slider__slider',
-      pin: '.slider__slider',
+      trigger: '.slider__list',
+      pin: '.slider__list',
       pinSpacing: true,
       start: 'top 100px',
       end: () => `+=${slides.length * 1000}`, // Dynamic end calculation
       scrub: 1,
       anticipatePin: 1,
-    },
-  });
-
-  gsap.to('.grid', {
-    scrollTrigger: {
-      trigger: '.grid',
-      pinnedContainer: '.slider__slider',
-      start: 'top 50%',
-      toggleActions: 'play none reset none',
     },
   });
 });
