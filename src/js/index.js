@@ -56,18 +56,20 @@ if (buttonBackToTop) {
 document.addEventListener('DOMContentLoaded', (event) => {
   gsap.registerPlugin(ScrollTrigger);
 
-  let slides = gsap.utils.toArray('.slider__item');
+  const slides = gsap.utils.toArray('.slider__item');
+  if (slides.length === 0) return;
 
   gsap.to(slides, {
     xPercent: -100 * (slides.length - 1),
     ease: 'none',
     scrollTrigger: {
-      trigger: '.slider_list',
+      trigger: '.slider__slider',
       pin: '.slider__slider',
       pinSpacing: true,
       start: 'top 100px',
+      end: () => `+=${slides.length * 1000}`, // Dynamic end calculation
       scrub: 1,
-      end: '+=3000',
+      anticipatePin: 1,
     },
   });
 
