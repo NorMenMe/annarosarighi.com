@@ -7,6 +7,10 @@
 		padding-inline-end: 15px;
 		margin-block-start: 25px;
 	}
+
+	@media (min-width: 1200px) {  
+		margin: 0;
+	}
 }
 
 .back-to-top__button {
