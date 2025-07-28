@@ -22,6 +22,10 @@
 .footer__inner {
 	margin: 0 auto;
 
+	@media (min-width: 768px) {
+		max-width: 850px;
+	}
+
 	@media (min-width: 1200px) {
 		max-width: 1440px;
 	}
@@ -217,11 +221,11 @@ li:nth-child(3) .footer__prefix-shape {
 }
 
 .footer__icon-chevron {
-	width: 20px;
+	width: 17px;
 	rotate: 90deg;
 
 	@media (min-width: 1200px) {
-		width: 23px;
+		width: 20px;
 	}	
 }
 
