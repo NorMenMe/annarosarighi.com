@@ -3,7 +3,7 @@
 	padding-inline-end: 15px;
 	padding-block-end: 25px;
 	padding-block-start: 110px;
-	margin-block-start: 25px;
+	margin-block-start: 75px;
 	background-color: #fff;
 
 	
@@ -11,12 +11,11 @@
 		padding-inline-start: 45px;
 		padding-inline-end: 20px;
 		padding-block-start: 120px;
-		margin-block-start: 35px;
 	}
 
 	@media (min-width: 1200px) {
 		padding-block-start: 170px;
-		margin-block-start: 45px;
+		margin-block-start: 120px;
 	}
 }
 
@@ -187,7 +186,6 @@ li:nth-child(3) .footer__prefix-shape {
 	margin-inline-start: 1em;
 
 	@media (min-width: 768px) {
-		font-weight: 800;
 		max-width: 400px;
 	}	
 
@@ -199,7 +197,7 @@ li:nth-child(3) .footer__prefix-shape {
 .footer__button {
 	font-size: 18px;
 	padding: 0;
-	margin-block-start: 3em;
+	margin-block-start: 4.2em;
 	height: fit-content;
 	display: inline-flex;
 	align-items: center;
@@ -208,7 +206,7 @@ li:nth-child(3) .footer__prefix-shape {
 	
 	@media (min-width: 768px) {
 		font-size: 22px;
-		margin-block-start: 3.5em;
+		margin-block-start: 5em;
 		align-self: flex-end;
 	}	
 
@@ -229,7 +227,7 @@ li:nth-child(3) .footer__prefix-shape {
 
 .footer__copyright {
 	font-size: 14px;
-	margin-block-start: 35px;
+	margin-block-start: 75px;
 	position: relative;
 	bottom: 0;
 	text-align: center;
