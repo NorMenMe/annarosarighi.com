@@ -13,6 +13,7 @@
 
 import LazerLoader from './lazer-loader.js';
 import BackToTop from './back-to-top.js';
+import Accordion from './accordion.js';
 
 //  INTO-VIEWPORT ANIMATION
 
@@ -73,3 +74,42 @@ document.addEventListener('DOMContentLoaded', (event) => {
     },
   });
 });
+
+// ACCORDION
+
+const listContainerAccordions = document.querySelectorAll('.accordion');
+
+const initializeAccordion = (containerAccordion) => {
+  const handler = containerAccordion.querySelector('.accordion___button');
+  const target = containerAccordion.querySelector('.accordion___panel');
+  const accordionInstances = [];
+
+  // initialize accordion with options
+  if (!handler || !target) return;
+  const accordionInstance = new Accordion({
+    target,
+    handler,
+    easing: 'easeInOutQuart',
+    duration: 400,
+    initOpened: false,
+    openClassName: 'is-open',
+    closeInstances: [
+      /* array of other accordion instances */
+    ],
+    toggleStart: (element, state, isOpen) => {
+      // do something after animation started
+    },
+    toggleEnd: (element, state, isOpen) => {
+      // do something after animation completes
+    },
+  });
+
+  accordionInstance.init();
+  accordionInstances.push(accordionInstance);
+};
+
+if (listContainerAccordions.length) {
+  listContainerAccordions.forEach((containerAccordion) => {
+    initializeAccordion(containerAccordion);
+  });
+}
