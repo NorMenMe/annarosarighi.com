@@ -183,7 +183,7 @@ li:nth-child(3) .footer__prefix-shape {
 }
 
 .footer__copy {
-	font-weight: 500;
+	font-weight: var(--font-weigth-medium);
 	margin-inline-start: 1em;
 
 	@media (min-width: 768px) {
@@ -215,6 +215,7 @@ li:nth-child(3) .footer__prefix-shape {
 	display: inline-flex;
 	align-items: center;
 	column-gap: 8px;
+	font-weight: var(--font-weigth-medium);
 	
 	@media (min-width: 768px) {
 		font-size: 22px;

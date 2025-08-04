@@ -17,7 +17,7 @@
 
 .header__heading {
   font-size: 36px;
-  font-weight: 800;
+  font-weight: var(--font-weigth-extra-bold);
   color: var(--color-black-light);
   transition: color 500ms ease-in;
 
