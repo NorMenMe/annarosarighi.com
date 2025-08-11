@@ -1,17 +1,17 @@
 .footer {
 	padding-inline: 25px 15px;
-	padding-block: 100px 25px;
+	padding-block: 75px 25px;
 	margin-block-start: 75px;
 	background-color: #fff;
 	
 	@media (min-width: 768px) {
 		padding-inline: 45px 20px;
-		padding-block-start: 165px;
+		padding-block-start: 115px;
 		margin-block-start: 115px;
 	}
 
 	@media (min-width: 1200px) {
-		padding-block-start: 170px;
+		padding-block-start: 120px;
 		margin-block-start: 120px;
 	}
 }
@@ -48,143 +48,30 @@
 	margin: 0;
 	display: flex;
 	flex-direction: column;
-	row-gap: 70px;
-
-	@media (min-width: 768px) {
-		row-gap: 100px;
-	}
+	row-gap: 30px;
 }
 
 .footer__item {
 	display: flex;
 	flex-direction: column;
 	font-size: 18px;
-	row-gap: 10px;
 	
 	@media (min-width: 768px) {
-		column-gap: 20px;
+		gap: 10px;
 		font-size: 22px;
 		flex-direction: row;
 	}	
 }
 
 .footer__prefix {
-	position: relative;
-	align-self: flex-start;
-	margin-top: 1em;
-}
-
-.footer__prefix-shape {
-	position: absolute;
-	top: -60px;
-	left: -35px;
-	rotate: 10deg;
-	width: 130px;
-	height: 140px;
-	background: #000;
-	display: inline-block;
-	clip-path: polygon(100% 50%, 25% 93.3%, 25% 6.7%, 100% 50%, calc(25% + 1.25px) calc(6.7% + 2.17px), calc(25% + 1.25px) calc(93.3% - 2.17px), calc(100% - 2.5px) calc(50% - 0px), calc(25% + 1.25px) calc(6.7% + 2.17px));
-
-	@media (min-width: 768px) {
-		top: -84px;
-		left: -49px;
-		width: 170px;
-		height: 191px;
-	}	
-}
-
-li:nth-child(2) .footer__prefix-shape {
-	top: -60px;
-	left: -18px;
-	rotate: 300deg;
-	width: 110px;
-	height: 120px;
-	clip-path: polygon(
-		90% 50%,
-		60% 90%,
-		20% 90%,
-		0% 50%,
-		30% 10%,
-		70% 10%,
-		90% 50%,
-		calc(70% - -2px) calc(10% + 2px),
-		calc(30% - -2px) calc(10% + 2px),
-		calc(0% - -2px) calc(50% + 0px),
-		calc(20% - -2px) calc(90% - 2px),
-		calc(60% - -2px) calc(90% - 2px),
-		calc(90% - 2px) calc(50% - 0px),
-		calc(70% - -2px) calc(10% + 2px)
-	);
-
-	@media (min-width: 768px) {
-		top: -79px;
-		left: -29px;
-		width: 150px;
-		height: 160px;
-	}	
-}
-
-li:nth-child(3) .footer__prefix-shape {
-	top: -50px;
-	left: -3px;
-	rotate: 90deg;
-	width: 93px;
-	height: 107px;
-	clip-path: polygon(
-		1% 100%,
-		6% 89%,
-		0% 74%,
-		11% 57%,
-		0% 44%,
-		12% 16%,
-		2% 1%,
-		28% 7%,
-		42% 1%,
-		66% 16%,
-		79% 0%,
-		90% 7%,
-		100% 2%,
-		96% 21%,
-		99% 32%,
-		92% 44%,
-		100% 68%,
-		85% 85%,
-		100% 100%,
-		35% 89%,
-		calc(35% + 2px) calc(89% - 2px),
-		calc(100% - 2px) calc(100% - 2px),
-		calc(85% - 2px) calc(85% - 2px),
-		calc(100% - 2px) calc(68% - 2px),
-		calc(92% - 2px) calc(44% - 2px),
-		calc(99% - 2px) calc(32% - 2px),
-		calc(96% - 2px) calc(21% + 2px),
-		calc(100% - 2px) calc(2% + 2px),
-		calc(90% - 2px) calc(7% + 2px),
-		calc(79% - 2px) calc(0% + 2px),
-		calc(66% - 2px) calc(16% + 2px),
-		calc(42% - 2px) calc(1% + 2px),
-		calc(28% - 2px) calc(7% + 2px),
-		calc(2% + 2px) calc(1% + 2px),
-		calc(12% + 2px) calc(16% + 2px),
-		calc(0% + 2px) calc(44% + 2px),
-		calc(11% + 2px) calc(57% + 2px),
-		calc(0% + 2px) calc(74% + 2px),
-		calc(6% + 2px) calc(89% + 2px),
-		calc(1% + 2px) calc(100% - 0px),
-		calc(35% + 2px) calc(89% - 2px)
-	);
-
-	@media (min-width: 768px) {
-		top: -74px;
-		left: -16px;
-		width: 140px;
-		height: 157px;
-	}	
+	font-style: normal;
+	font-weight: var(--font-weigth-regular);
+	display: block;
 }
 
 .footer__copy {
 	font-weight: var(--font-weigth-medium);
-	margin-inline-start: 1em;
+	margin: 0;
 
 	@media (min-width: 768px) {
 		max-width: 400px;
@@ -196,14 +83,10 @@ li:nth-child(3) .footer__prefix-shape {
 }
 
 .footer__accordion {
-	margin-block-start: 65px;
-
-	@media (min-width: 768px) {
-		margin-block-start: 120px;
-	}	
+	margin-block-start: 75px;
 
 	@media (min-width: 1200px) {
-		margin-block-start: 27px;
+		margin-block-start: 0px;
 		flex-basis: 215px;
 	}
 }
