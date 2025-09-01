@@ -4,12 +4,13 @@
 
   @media (min-width: 768px) {
     margin-top: 50px;
+    margin-top: 800px;
   }
 
   @media (min-width: 1200px) {
     margin: 60px auto 45px;
   }
-
+  
   &.ani-in {
     animation: ani-in 1000ms ease;
   }

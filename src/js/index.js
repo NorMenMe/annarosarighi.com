@@ -113,3 +113,37 @@ if (listContainerAccordions.length) {
     initializeAccordion(containerAccordion);
   });
 }
+
+const targets = document.querySelectorAll('.container');
+
+const options = {
+  root: null,
+  rootMargin: '0px 0px -100% 0px',
+  threshold: 0,
+};
+
+const handleItem = (entries) => {
+  entries.forEach((entry) => {
+    const { target, boundingClientRect, isIntersecting } = entry;
+    const item = target.querySelector('.item');
+    const itemIndex = item.dataset.item;
+    const isAtTop = boundingClientRect.top > 0;
+
+    if (item) {
+      const isNotSticky = !item.classList.contains('is-sticky');
+
+      if (isIntersecting && isNotSticky) {
+        item.classList.add('is-sticky');
+        item.style.setProperty('--item-index', itemIndex);
+      } else if (!isIntersecting && isAtTop) {
+        item.classList.remove('is-sticky');
+      }
+    }
+  });
+};
+
+const instanceObserver = new IntersectionObserver(handleItem, options);
+
+targets.forEach((target) => {
+  instanceObserver.observe(target);
+});

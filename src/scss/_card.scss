@@ -1,0 +1,30 @@
+
+.container {
+	border: 1px solid coral;
+	margin-block-start: 2rem;
+	display: flex;
+	flex-wrap: no-wrap;
+	justify-content: space-between;
+	gap: 100px;  
+	width: 100%;
+	display: grid;
+	grid-template-columns: 200px 400px;
+}
+
+.content {
+	height: 1000px;
+	grid-column: 2 / 3;
+	background-color: goldenrod;
+	outline: 1px solid hotpink;
+}
+
+.content--2 {
+	background-color: teal;
+}
+
+.item.is-sticky {  
+	position: fixed;
+	top: 0;
+	transform: translateY(calc(var(--item-index) * var(--item-spacing)));
+}
+
