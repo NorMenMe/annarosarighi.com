@@ -114,7 +114,9 @@ if (listContainerAccordions.length) {
   });
 }
 
-const targets = document.querySelectorAll('.container');
+// STICKY STACKED ITEMS
+
+const targets = document.querySelectorAll('.card');
 
 const options = {
   root: null,
@@ -125,17 +127,19 @@ const options = {
 const handleItem = (entries) => {
   entries.forEach((entry) => {
     const { target, boundingClientRect, isIntersecting } = entry;
-    const item = target.querySelector('.item');
+    const item = target.querySelector('.card__heading');
     const itemIndex = item.dataset.item;
     const isAtTop = boundingClientRect.top > 0;
 
     if (item) {
-      const isNotSticky = !item.classList.contains('is-sticky');
+      const isNotSticky = !item.classList.contains('is-sticky'); // move up ?
 
       if (isIntersecting && isNotSticky) {
+        // add comments
         item.classList.add('is-sticky');
         item.style.setProperty('--item-index', itemIndex);
       } else if (!isIntersecting && isAtTop) {
+        // add comments
         item.classList.remove('is-sticky');
       }
     }
@@ -144,6 +148,7 @@ const handleItem = (entries) => {
 
 const instanceObserver = new IntersectionObserver(handleItem, options);
 
+// check targets length
 targets.forEach((target) => {
   instanceObserver.observe(target);
 });

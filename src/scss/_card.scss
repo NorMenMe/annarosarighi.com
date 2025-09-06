@@ -1,30 +1,24 @@
 
-.container {
-	border: 1px solid coral;
-	margin-block-start: 2rem;
-	display: flex;
-	flex-wrap: no-wrap;
-	justify-content: space-between;
-	gap: 100px;  
-	width: 100%;
+
+.card {
 	display: grid;
-	grid-template-columns: 200px 400px;
+	grid-template-columns: auto 750px;
+	gap: 20px;
 }
 
-.content {
-	height: 1000px;
-	grid-column: 2 / 3;
-	background-color: goldenrod;
-	outline: 1px solid hotpink;
-}
-
-.content--2 {
-	background-color: teal;
-}
-
-.item.is-sticky {  
+.card__heading.is-sticky {  
 	position: fixed;
 	top: 0;
 	transform: translateY(calc(var(--item-index) * var(--item-spacing)));
 }
+
+div.card__grid {
+	margin: 0;
+	grid-column: 2 / 3;
+}
+
+ul.card__list {
+	padding: 0;
+}
+
 
