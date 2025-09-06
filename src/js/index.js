@@ -117,6 +117,7 @@ if (listContainerAccordions.length) {
 // STICKY STACKED ITEMS
 
 const targets = document.querySelectorAll('.card');
+const isNotMobile = window.innerWidth >= 768;
 
 const options = {
   root: null,
@@ -132,15 +133,15 @@ const handleItem = (entries) => {
     const isAtTop = boundingClientRect.top > 0;
 
     if (item) {
-      const isNotSticky = !item.classList.contains('is-sticky'); // move up ?
+      const isNotSticky = !target.classList.contains('has-sticky-item'); // move up ?
 
       if (isIntersecting && isNotSticky) {
         // add comments
-        item.classList.add('is-sticky');
+        target.classList.add('has-sticky-item');
         item.style.setProperty('--item-index', itemIndex);
       } else if (!isIntersecting && isAtTop) {
         // add comments
-        item.classList.remove('is-sticky');
+        target.classList.remove('has-sticky-item');
       }
     }
   });
@@ -148,7 +149,8 @@ const handleItem = (entries) => {
 
 const instanceObserver = new IntersectionObserver(handleItem, options);
 
-// check targets length
-targets.forEach((target) => {
-  instanceObserver.observe(target);
-});
+if (targets.length && isNotMobile) {
+  targets.forEach((target) => {
+    instanceObserver.observe(target);
+  });
+}
