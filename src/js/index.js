@@ -15,7 +15,8 @@ import LazerLoader from './lazer-loader.js';
 import BackToTop from './back-to-top.js';
 import Accordion from './accordion.js';
 
-const isTablet = window.innerWidth >= 768;
+const BREAKPOINT_TABLET = 768;
+const isTablet = window.innerWidth >= BREAKPOINT_TABLET;
 
 //  INTO-VIEWPORT ANIMATION
 
@@ -119,7 +120,7 @@ if (listContainerAccordions.length) {
 
 // STICKY STACKED ITEMS
 
-const targets = document.querySelectorAll('.card');
+const CLASS_STICKY = 'has-sticky-item';
 
 const options = {
   root: null,
@@ -127,25 +128,38 @@ const options = {
   threshold: 0,
 };
 
+const setCSSProperty = (item) => {
+  const itemIndex = item?.dataset?.itemNumber || null;
+  item.style.setProperty('--item-index', itemIndex);
+};
+
+const toggleClassSticky = (state, target) => {
+  if (state === 'add') {
+    target.classList.add(CLASS_STICKY);
+  } else {
+    target.classList.remove(CLASS_STICKY);
+  }
+};
+
 const handleItem = (entries) => {
   entries.forEach((entry) => {
     const { target, boundingClientRect, isIntersecting } = entry;
-    const item = target.querySelector('.card__heading');
-    const itemIndex = item?.dataset?.item || null;
     const isAtTop = boundingClientRect.top > 0;
-    const isNotSticky = !target.classList.contains('has-sticky-item'); // move up ?
+    const isNotSticky = !target.classList.contains(CLASS_STICKY);
 
+    const item = target.querySelector('.card__heading');
     if (!item) return;
 
     if (isIntersecting && isNotSticky) {
-      target.classList.add('has-sticky-item');
-      item.style.setProperty('--item-index', itemIndex);
+      toggleClassSticky('add', target);
+      setCSSProperty(item);
     } else if (!isIntersecting && isAtTop) {
-      target.classList.remove('has-sticky-item');
+      toggleClassSticky('remove', target);
     }
   });
 };
 
+const targets = document.querySelectorAll('.card');
 const instanceObserver = new IntersectionObserver(handleItem, options);
 
 if (targets.length && isTablet) {
