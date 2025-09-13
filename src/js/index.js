@@ -15,6 +15,8 @@ import LazerLoader from './lazer-loader.js';
 import BackToTop from './back-to-top.js';
 import Accordion from './accordion.js';
 
+const isTablet = window.innerWidth >= 768;
+
 //  INTO-VIEWPORT ANIMATION
 
 const allLists = document.querySelectorAll('.header');
@@ -54,26 +56,27 @@ if (buttonBackToTop) {
 
 // SLIDER
 
-document.addEventListener('DOMContentLoaded', (event) => {
+if (isTablet) {
   gsap.registerPlugin(ScrollTrigger);
 
   const slides = gsap.utils.toArray('.slider__item');
-  if (slides.length === 0) return;
 
-  gsap.to(slides, {
-    xPercent: -100 * (slides.length - 1),
-    ease: 'none',
-    scrollTrigger: {
-      trigger: '.slider__list',
-      pin: '.slider__list',
-      pinSpacing: true,
-      start: 'top 100px',
-      end: () => `+=${slides.length * 1000}`, // Dynamic end calculation
-      scrub: 1,
-      anticipatePin: 1,
-    },
-  });
-});
+  if (slides.length) {
+    gsap.to(slides, {
+      xPercent: -100 * (slides.length - 1),
+      ease: 'none',
+      scrollTrigger: {
+        trigger: '.slider__list',
+        pin: '.slider__list',
+        pinSpacing: true,
+        start: 'top 100px',
+        end: () => `+=${slides.length * 1000}`, // Dynamic end calculation
+        scrub: 1,
+        anticipatePin: 1,
+      },
+    });
+  }
+}
 
 // ACCORDION
 
@@ -117,7 +120,6 @@ if (listContainerAccordions.length) {
 // STICKY STACKED ITEMS
 
 const targets = document.querySelectorAll('.card');
-const isNotMobile = window.innerWidth >= 768;
 
 const options = {
   root: null,
@@ -129,27 +131,24 @@ const handleItem = (entries) => {
   entries.forEach((entry) => {
     const { target, boundingClientRect, isIntersecting } = entry;
     const item = target.querySelector('.card__heading');
-    const itemIndex = item.dataset.item;
+    const itemIndex = item?.dataset?.item || null;
     const isAtTop = boundingClientRect.top > 0;
+    const isNotSticky = !target.classList.contains('has-sticky-item'); // move up ?
 
-    if (item) {
-      const isNotSticky = !target.classList.contains('has-sticky-item'); // move up ?
+    if (!item) return;
 
-      if (isIntersecting && isNotSticky) {
-        // add comments
-        target.classList.add('has-sticky-item');
-        item.style.setProperty('--item-index', itemIndex);
-      } else if (!isIntersecting && isAtTop) {
-        // add comments
-        target.classList.remove('has-sticky-item');
-      }
+    if (isIntersecting && isNotSticky) {
+      target.classList.add('has-sticky-item');
+      item.style.setProperty('--item-index', itemIndex);
+    } else if (!isIntersecting && isAtTop) {
+      target.classList.remove('has-sticky-item');
     }
   });
 };
 
 const instanceObserver = new IntersectionObserver(handleItem, options);
 
-if (targets.length && isNotMobile) {
+if (targets.length && isTablet) {
   targets.forEach((target) => {
     instanceObserver.observe(target);
   });
