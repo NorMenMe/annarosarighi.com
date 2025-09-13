@@ -112,10 +112,18 @@
 	width: 100%;
 	scale: 0.6;
 	transition: scale 1s ease;
+
+	@media (min-width: 768px) {  
+		scale: 0.9;
+	}
 }
 
 .card__item:hover > img {
 	scale: 0.9;
+
+	@media (min-width: 768px) {  
+		scale: 0.6;	
+	}
 }
 
 .card__item:first-child {
