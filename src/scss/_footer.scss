@@ -29,13 +29,10 @@
 	display: flex;
 	flex-direction: column;
 
-	@media (min-width: 768px) {
-		column-gap: var(--space-xxxl);
-		justify-content: space-between;
-	}
-
 	@media (min-width: 1200px) {
 		flex-direction: row;
+		column-gap: var(--space-xxxl);
+		justify-content: space-between;
 	}
 	
 }
@@ -81,11 +78,12 @@
 	margin-block-start: var(--space-l);
 
 	@media (min-width: 768px) {
-		text-align: center;
+		width: 215px;
+		margin-inline: auto;
 	}	
 
 	@media (min-width: 1200px) {
-		text-align: revert;
+		margin-inline: revert;
 		margin-block-start: 0px;
 		flex-basis: calc(var(--space-xxl) * 2);
 	}
@@ -101,18 +99,17 @@
 	font-weight: var(--font-weigth-medium);
 	
 	@media (min-width: 768px) {
-		font-size: 22px;
 		column-gap: var(--space-xs);
 	}	
 }
 
 .footer .accordion___icon {
-	width: 17px;
+	width: 16px;
 	rotate: 90deg;
 	transition: rotate 400ms ease-in-out;
 
 	@media (min-width: 1200px) {
-		width: 20px;
+		width: 18px;
 	}	
 }
 
