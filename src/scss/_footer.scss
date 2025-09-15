@@ -1,6 +1,6 @@
 .footer {
 	margin-block-start: var(--space-xl);
-	background-color: #fff;
+	background-color: var(--color-white-primary);
 	
 	@media (min-width: 768px) {
 		margin-block-start: var(--space-xxl);

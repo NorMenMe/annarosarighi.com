@@ -31,6 +31,11 @@
 	--space-xl: 80px;
 	--space-xxl: 100px;
 	--space-xxxl: 120px;
+
+	/* COLOR */
+
+	--color-white-primary: #fff;
+	--color-grey-primary: #F5F5F5;
 }
 
 html {
@@ -40,7 +45,7 @@ html {
 body {
 	font-family: "Roboto", sans-serif;
 	font-optical-sizing: auto;
-	background-color: #F5F5F5;
+	background-color: var(--color-grey-primary);
 }
 
 

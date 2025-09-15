@@ -78,7 +78,7 @@
 
 .card__item {
 	aspect-ratio: 3 / 4;
-	background-color: #fff;
+	background-color: var(--color-white-primary);
 	transition: clip-path 1s ease;
 	margin: 1rem 0px;
 	max-width: 270px;
