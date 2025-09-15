@@ -64,6 +64,17 @@ if (isTablet) {
 
   if (slides.length) {
     gsap.to(slides, {
+      scale: 1.2,
+      duration: 0.8,
+      ease: 'power2.out',
+      scrollTrigger: {
+        trigger: '.slider__list',
+        start: 'top 100px',
+        toggleActions: 'play none none reverse',
+      },
+    });
+
+    gsap.to(slides, {
       xPercent: -100 * (slides.length - 1),
       ease: 'none',
       scrollTrigger: {
