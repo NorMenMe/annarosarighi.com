@@ -49,6 +49,15 @@ body {
 }
 
 
+a,
+button,
+input {
+	&:focus-visible {
+		outline: 3px dotted var(--color-black-light);
+		outline-offset: 3px;
+	}
+}
+
 .sr-only {
 	position: absolute;
 	width: 1px;
