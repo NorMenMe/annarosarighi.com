@@ -135,7 +135,7 @@ const CLASS_STICKY = 'has-sticky-item';
 
 const options = {
   root: null,
-  rootMargin: '0px 0px -100% 0px',
+  rootMargin: '0px 0px -90% 0px',
   threshold: 0,
 };
 
