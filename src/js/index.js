@@ -11,12 +11,16 @@
   Changes to these files are PROHIBITED due to license restrictions.
 */
 
-import { LazerLoader } from './lazer-loader.js';
-import TiltImage from './tilt-image.js';
+import LazerLoader from './lazer-loader.js';
+import BackToTop from './back-to-top.js';
+import Accordion from './accordion.js';
+
+const BREAKPOINT_TABLET = 768;
+const isTablet = window.innerWidth >= BREAKPOINT_TABLET;
 
 //  INTO-VIEWPORT ANIMATION
 
-const allLists = document.querySelectorAll('.portfolio__header');
+const allLists = document.querySelectorAll('.header');
 
 if (allLists.length) {
   const Lazer = new LazerLoader({
@@ -33,105 +37,144 @@ if (allLists.length) {
   Lazer.init();
 }
 
-// DROPDOWN
+// BUTTON BACK TO TOP
 
-const buttons = document.querySelectorAll('.header__button');
+const buttonBackToTop = document.querySelector('.back-to-top__button');
+const BREAKPOINT_BACKTOTOP = 1249;
+const SCROLL_TRESHOLD = 3500;
 
-const handleOnClick = (event) => {
-  const currentClickedButton = event.currentTarget;
-  const container = currentClickedButton.closest('.header');
+if (buttonBackToTop) {
+  const backToTopInstance = new BackToTop({
+    SCROLL_TRESHOLD,
+    BREAKPOINT_BACKTOTOP,
+    buttonBackToTop,
+  });
+  backToTopInstance.init();
 
-  let isCollapsed =
-    currentClickedButton.getAttribute('aria-expanded') === 'true';
-  isCollapsed = !isCollapsed;
-  currentClickedButton.setAttribute('aria-expanded', isCollapsed);
+  const backToTopInstances = [];
+  backToTopInstances.push(backToTopInstance);
+}
 
-  isCollapsed
-    ? container.classList.add('is-collapsed')
-    : container.classList.remove('is-collapsed');
-};
+// SLIDER
 
-const handleOnMouseDown = (event) => {
-  const currentClickedButton = event.currentTarget;
-  currentClickedButton.style.cursor = 'grabbing';
-};
+if (isTablet) {
+  gsap.registerPlugin(ScrollTrigger);
 
-const handleOnMouseUp = (event) => {
-  const currentClickedButton = event.currentTarget;
-  currentClickedButton.style.cursor = 'pointer';
-};
+  const slides = gsap.utils.toArray('.slider__item');
 
-buttons.length &&
-  buttons.forEach((button) => {
-    button.addEventListener('click', handleOnClick);
-    button.addEventListener('mousedown', handleOnMouseDown);
-    button.addEventListener('mouseup', handleOnMouseUp);
+  if (slides.length) {
+    gsap.to(slides, {
+      scale: 1.2,
+      duration: 0.8,
+      ease: 'power2.out',
+      scrollTrigger: {
+        trigger: '.slider__list',
+        start: 'top 100px',
+        toggleActions: 'play none none reverse',
+      },
+    });
+
+    gsap.to(slides, {
+      xPercent: -100 * (slides.length - 1),
+      ease: 'none',
+      scrollTrigger: {
+        trigger: '.slider__list',
+        pin: '.slider__list',
+        pinSpacing: true,
+        start: 'top 100px',
+        end: () => `+=${slides.length * 1000}`, // Dynamic end calculation
+        scrub: 1,
+        anticipatePin: 1,
+      },
+    });
+  }
+}
+
+// ACCORDION
+
+const listContainerAccordions = document.querySelectorAll('.accordion');
+
+const initializeAccordion = (containerAccordion) => {
+  const handler = containerAccordion.querySelector('.accordion___button');
+  const target = containerAccordion.querySelector('.accordion___panel');
+  const accordionInstances = [];
+
+  // initialize accordion with options
+  if (!handler || !target) return;
+  const accordionInstance = new Accordion({
+    target,
+    handler,
+    easing: 'easeInOutQuart',
+    duration: 400,
+    initOpened: false,
+    openClassName: 'is-open',
+    closeInstances: [
+      /* array of other accordion instances */
+    ],
+    toggleStart: (element, state, isOpen) => {
+      // do something after animation started
+    },
+    toggleEnd: (element, state, isOpen) => {
+      // do something after animation completes
+    },
   });
 
-// TILT-IMAGE EFFECT
-
-const containerTarget = document.querySelector('.tilt-image-container');
-const instancesTiltImage = [];
-
-const instanceTiltImage = new TiltImage({
-  containerTarget: containerTarget,
-  images: containerTarget.querySelectorAll('img'),
-});
-
-instanceTiltImage.init();
-instancesTiltImage.push(instanceTiltImage);
-
-// BACK TO BUTTON
-
-const BREAKPOINT_BACKTOTOP = 1249;
-const SCROLL_TRESHOLD = 1500;
-const backToTop = document.querySelector('.back-to-top__button');
-
-const showBackToTop = () => {
-  backToTop.classList.remove('hidden');
+  accordionInstance.init();
+  accordionInstances.push(accordionInstance);
 };
 
-const hideBackToTop = () => {
-  if (window.innerWidth >= BREAKPOINT_BACKTOTOP) {
-    // default backToTop is hidden
-    backToTop.classList.add('hidden');
-  }
+if (listContainerAccordions.length) {
+  listContainerAccordions.forEach((containerAccordion) => {
+    initializeAccordion(containerAccordion);
+  });
+}
+
+// STICKY STACKED ITEMS
+
+const CLASS_STICKY = 'has-sticky-item';
+
+const options = {
+  root: null,
+  rootMargin: '0px 0px -90% 0px',
+  threshold: 0,
 };
 
-const scrollOnClick = () => {
-  window.scrollTo({ top: 0, behavior: 'smooth' });
+const setCSSProperty = (item) => {
+  const itemIndex = item?.dataset?.itemNumber || null;
+  item.style.setProperty('--item-index', itemIndex);
 };
 
-// throttle request animation frame enhancing performance, matching browser's display rate of 60fps
-const throttleRAF = (fn) => {
-  let rafId = null;
-  let isWaiting = false;
-
-  return (...args) => {
-    if (isWaiting) return;
-
-    isWaiting = true;
-    rafId = requestAnimationFrame(() => {
-      fn.apply(this, args);
-      isWaiting = false;
-    });
-  };
-};
-
-const handleOnScroll = () => {
-  if (window.scrollY > SCROLL_TRESHOLD) {
-    showBackToTop();
+const toggleClassSticky = (state, target) => {
+  if (state === 'add') {
+    target.classList.add(CLASS_STICKY);
   } else {
-    hideBackToTop();
+    target.classList.remove(CLASS_STICKY);
   }
 };
 
-const bindEvents = () => {
-  document.addEventListener('scroll', throttleRAF(handleOnScroll));
-  backToTop.addEventListener('click', scrollOnClick);
+const handleItem = (entries) => {
+  entries.forEach((entry) => {
+    const { target, boundingClientRect, isIntersecting } = entry;
+    const isAtTop = boundingClientRect.top > 0;
+    const isNotSticky = !target.classList.contains(CLASS_STICKY);
+
+    const item = target.querySelector('.card__heading');
+    if (!item) return;
+
+    if (isIntersecting && isNotSticky) {
+      toggleClassSticky('add', target);
+      setCSSProperty(item);
+    } else if (!isIntersecting && isAtTop) {
+      toggleClassSticky('remove', target);
+    }
+  });
 };
 
-if (backToTop) {
-  hideBackToTop();
-  bindEvents();
+const targets = document.querySelectorAll('.card');
+const instanceObserver = new IntersectionObserver(handleItem, options);
+
+if (targets.length && isTablet) {
+  targets.forEach((target) => {
+    instanceObserver.observe(target);
+  });
 }

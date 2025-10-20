@@ -1,8 +1,140 @@
 .footer {
-	padding-block-end: 25px;
+	margin-block-start: var(--space-xl);
+	background-color: var(--color-white-primary);
+	
+	@media (min-width: 768px) {
+		margin-block-start: var(--space-xxl);
+	}
+
+	@media (min-width: 1200px) {
+		margin-block-start: var(--space-xxxl);
+	}
+}
+
+.footer__inner {
+	padding-inline: var(--space-xs);
+	padding-block: var(--space-xl) var(--space-xm);
+
+	@media (min-width: 768px) {
+		padding-inline: var(--space-xm);
+	}	
+
+	@media (min-width: 1200px) {
+		max-width: 1200px;
+		margin: 0 auto;
+	}
+}
+
+.footer__content {
+	display: flex;
+	flex-direction: column;
+
+	@media (min-width: 1200px) {
+		flex-direction: row;
+		column-gap: var(--space-xxxl);
+		justify-content: space-between;
+	}
+	
+}
+
+.footer__list {
+	display: flex;
+	flex-direction: column;
+	row-gap: var(--space-xm);
+}
+
+.footer__item {
+	display: flex;
+	flex-direction: column;
+	font-size: 18px;
+	
+	@media (min-width: 768px) {
+		gap: var(--space-s);
+		font-size: 22px;
+		flex-direction: row;
+	}	
+}
+
+.footer__prefix {
+	font-style: normal;
+	font-weight: var(--font-weigth-regular);
+	display: block;
 }
 
 .footer__copy {
-	text-align: center;
+	font-weight: var(--font-weigth-medium);
+	margin: 0;
+
+	@media (min-width: 768px) {
+		max-width: calc(var(--space-xxl) * 4);
+	}	
+
+	@media (min-width: 1200px) {
+		max-width: calc(var(--space-xxl) * 6);
+	}	
+}
+
+.footer__accordion {
+	margin-block-start: var(--space-l);
+
+	@media (min-width: 768px) {
+		width: 215px;
+		margin-inline: auto;
+	}	
+
+	@media (min-width: 1200px) {
+		margin-inline: revert;
+		margin-block-start: 0px;
+		flex-basis: calc(var(--space-xxl) * 2);
+	}
+}
+
+.footer .accordion___button {
+	font-size: 18px;
+	padding: 0;
+	height: fit-content;
+	display: inline-flex;
+	align-items: center;
+	column-gap: 8px;
+	font-weight: var(--font-weigth-medium);
+	
+	@media (min-width: 768px) {
+		column-gap: var(--space-xs);
+	}	
+}
+
+.footer .accordion___icon {
+	width: 16px;
+	rotate: 90deg;
+	transition: rotate 400ms ease-in-out;
+
+	@media (min-width: 1200px) {
+		width: 18px;
+	}	
+}
+
+.footer .is-open .accordion___icon {
+	rotate: -90deg;
+}
+
+
+.footer .accordion___panel {
+	overflow: hidden;
+	padding: 0;
+	margin: 0;
+	height: 0px;
+	border-bottom: 2px solid var(--color-black-light);
+}
+
+.footer .accordion___address a {
+	text-decoration: none;
+	font-style: normal;
+}
+
+.footer__copyright {
 	font-size: 14px;
+	margin-block-start: var(--space-l);
+	position: relative;
+	bottom: 0;
+	text-align: center;
 }

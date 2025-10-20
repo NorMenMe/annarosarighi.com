@@ -1,107 +1,156 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8">
-    <!-- displays site properly based on user's device -->
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="preload" href="/assets/fonts/roboto/Roboto-ExtraBold.woff2" as="font"/>
-    <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon-32x32.png">
-    <title>Portfolio of Annarosa Righi</title>
-    <link rel="stylesheet" href="styles/main.css">
-  </head>
-  <body>
-    <header class="header ani-in">
-      <h1 class="header__heading">
-        <button class="header__button" aria-expanded="false" type="button">
-          <span class="header__headline">Annarosa Righi</span>
-          <span class="header__icon">
-            <svg class="header__icon-plus" viewBox="0 0 256 256" xmlns="http://www.w3.org/2000/svg" xml:space="preserve">
-              <g style="stroke:none;stroke-width:0;stroke-dasharray:none;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:10;fill:none;fill-rule:nonzero;opacity:1"><path d="M86.5 41.5h-38v-38a3.5 3.5 0 1 0-7 0v38h-38a3.5 3.5 0 1 0 0 7h38v38a3.5 3.5 0 1 0 7 0v-38h38a3.5 3.5 0 1 0 0-7z" style="stroke:none;stroke-width:1;stroke-dasharray:none;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:10;fill:#1d1d1b;fill-rule:nonzero;opacity:1" transform="matrix(2.81 0 0 2.81 1.407 1.407)"/></g>
-            </svg>
-            <svg class="header__icon-minus" viewBox="0 0 256 256" xmlns="http://www.w3.org/2000/svg" xml:space="preserve">
-              <g style="stroke:none;stroke-width:0;stroke-dasharray:none;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:10;fill:none;fill-rule:nonzero;opacity:1"><path d="M86.5 48.5h-83a3.5 3.5 0 1 1 0-7h83a3.5 3.5 0 1 1 0 7z" style="stroke:none;stroke-width:1;stroke-dasharray:none;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:10;fill:#1d1d1b;fill-rule:nonzero;opacity:1" transform="matrix(2.81 0 0 2.81 1.407 1.407)"/><path d="M86.5 48.5h-83a3.5 3.5 0 1 1 0-7h83a3.5 3.5 0 1 1 0 7z" style="stroke:none;stroke-width:1;stroke-dasharray:none;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:10;fill:#1d1d1b;fill-rule:nonzero;opacity:1" transform="matrix(2.81 0 0 2.81 1.407 1.407)"/></g>
-            </svg>
-          </span>
-          <span class="sr-only">click for more information about the artist</span>
-        </button>
-      </h1>
-      <p class="header__copy">
-        <span>
-          <strong>Annarosa</strong>
-          <span>balances her life between the mountains of Trentino and Berlin.</span>
-        </span>
-        <span>
-          <strong>Annarosa</strong>
-          <span>likes to capture on paper what she sees.</span>
-        </span>
-        <span>
-          <strong>Annarosa</strong>
-          <span>is an active member of the Urban Sketchers group. She takes part every year to the exhibition <i>"Matite in Viaggio"</i>, Venice.</span>
-        </span>
-        <span>
-          <span>For more information:</span>
-          <a href="mailto:annarosarighi@gmail.com">annarosarighi@gmail.com</a>
-        </span>
-      </p>
-      <a href="#teaser-event" class="header__link-button">
-        <span>current exhibition</span>
-      </a>
-    </header>
-    <main id="main-content">
-      <div class="portfolio">
-        <ul class="portfolio__media-list">
-          <li class="portfolio__image">
+
+<head>
+  <meta charset="UTF-8">
+  <!-- displays site properly based on user's device -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="preload" href="/assets/fonts/roboto/Roboto-ExtraBold.woff2" as="font" />
+  <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon-32x32.png">
+  <title>Portfolio of Annarosa Righi</title>
+  <link rel="stylesheet" href="styles/main.css">
+</head>
+
+<body>
+  <header class="header ani-in">
+    <h1 class="header__heading">
+      Annarosa Righi
+    </h1>
+  </header>
+  <main class="main">
+
+    <div class="slider">
+      <div class="slider__inner">
+        <div class="slider__slider">
+          <ul class="slider__list">
+            <li class="slider__item">
+              <picture class="slider__picture">
+                <img src="assets/burlesque-1.webp" alt="image of a house" loading="lazy">
+              </picture>
+            </li>
+            <li class="slider__item">
+              <picture class="slider__picture">
+                <img src="assets/figure-7.webp" alt="image of a house" loading="lazy">
+              </picture>
+            </li>
+            <li class="slider__item">
+              <picture class="slider__picture">
+                <img src="assets/figure-14.webp" alt="image of a house" loading="lazy">
+              </picture>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <section class="card">
+      <div class="card__inner">
+        <h2 class="card__heading" data-item-number="1">
+          <a href="#card-list-1" class="card__link">Houses</a>
+        </h2>
+        <ul class="card__list" id="card-list-1">
+          <li class="card__item">
+            <img src="assets/house-19.webp" alt="image of a house" loading="lazy">
+          </li>
+          <li class="card__item">
             <img src="assets/house-4.webp" alt="image of a house" loading="lazy">
           </li>
-          <li class="portfolio__image">
-            <img src="assets/house-1.webp" alt="image of a house" loading="lazy">
-          </li>
-          <li class="portfolio__image">
-            <img src="assets/house-5.webp" alt="image of a house" loading="lazy">
-          </li>
-          <li class="portfolio__image">
+          <li class="card__item">
             <img src="assets/house-6.webp" alt="image of a house" loading="lazy">
           </li>
-          <li class="portfolio__image">
-            <img src="assets/house-9.webp" alt="image of a house" loading="lazy">
-          </li>
-          <li class="portfolio__image">
-            <img src="assets/house-10.webp" alt="image of a house" loading="lazy">
-          </li>
-          <li class="portfolio__image">
-            <img src="assets/house-2.webp" alt="image of a house" loading="lazy">
-          </li>
-          <li class="portfolio__image">
-            <img src="assets/house-3.webp" alt="image of a house" loading="lazy">
-          </li>
-          <li class="portfolio__image">
-            <img src="assets/figure-7.webp" alt="image of a house" loading="lazy">
-          </li>
-          <li class="portfolio__image">
-            <img src="assets/figure-8.webp" alt="image of a house" loading="lazy">
-          </li>
-          <li class="portfolio__image">
-            <img src="assets/figure-14.webp" alt="image of a person" loading="lazy">
+          <li class="card__item">
+            <img src="assets/house-5.webp" alt="image of a house" loading="lazy">
           </li>
         </ul>
       </div>
-      <div class="tilt-image-container" id="teaser-event">
-        <picture class="tilt-image">
-          <img src="assets/flyer-vernissage.png" alt="image of a house">
-        </picture>
+    </section>
+
+    <section class="card">
+      <div class="card__inner">
+        <h2 class="card__heading" data-item-number="2">
+          <a href="#card-list-2" class="card__link">Urban Sketches</a>
+        </h2>
+        <ul class="card__list" id="card-list-2">
+          <li class="card__item">
+            <img src="assets/house-9.webp" alt="image of a house" loading="lazy">
+          </li>
+          <li class="card__item">
+            <img src="assets/house-21.webp" alt="image of a house" loading="lazy">
+          </li>
+          <li class="card__item">
+            <img src="assets/house-10.webp" alt="image of a house" loading="lazy">
+          </li>
+          <li class="card__item">
+            <img src="assets/house-2.webp" alt="image of a house" loading="lazy">
+          </li>
+        </ul>
       </div>
-      <div class="back-to-top__container">
-        <button class="back-to-top__button" type="button">
-          <svg class="back-to-top__icon" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" xml:space="preserve" aria-hidden="true">
-            <path fill="#fff" fill-rule="evenodd" d="M12 3a1 1 0 0 1 .707.293l7 7a1 1 0 0 1-1.414 1.414L13 6.414V20a1 1 0 1 1-2 0V6.414l-5.293 5.293a1 1 0 0 1-1.414-1.414l7-7A1 1 0 0 1 12 3Z" clip-rule="evenodd"/>
-          </svg>
-          <span class="sr-only">back to the top</span>
-        </button>
+    </section>
+
+    <div class="back-to-top">
+      <button class="back-to-top__button" type="button">
+        <svg class="back-to-top__icon" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" xml:space="preserve"
+          aria-hidden="true">
+          <path fill="#000000b3" fill-rule="evenodd"
+            d="M12 3a1 1 0 0 1 .707.293l7 7a1 1 0 0 1-1.414 1.414L13 6.414V20a1 1 0 1 1-2 0V6.414l-5.293 5.293a1 1 0 0 1-1.414-1.414l7-7A1 1 0 0 1 12 3Z"
+            clip-rule="evenodd" />
+        </svg>
+        <span class="sr-only">back to the top</span>
+      </button>
+    </div>
+  </main>
+  <footer class="footer">
+    <div class="footer__inner">
+      <div class="footer__content">
+        <ul class="footer__list">
+          <li class="footer__item">
+            <span class="footer__prefix">Annarosa</span>
+            <p class="footer__copy">is an active member of the Urban Sketchers group. She takes part every year to the
+              exhibition.</p>
+          </li>
+          <li class="footer__item">
+            <span class="footer__prefix">Annarosa</span>
+            <p class="footer__copy">balances her life between the mountains of Trentino and Berlin.</p>
+          </li>
+          <li class="footer__item">
+            <span class="footer__prefix">Annarosa</span>
+            <p class="footer__copy">likes to capture on paper what she sees.</p>
+          </li>
+        </ul>
+        <div class="footer__accordion accordion ">
+          <button class="accordion___button" aria-expanded="false" type="button">
+            <svg class="accordion___icon" xmlns="http://www.w3.org/2000/svg" viewBox="5 5 10 10" fill="currentColor"
+              aria-hidden="true">
+              <path fill-rule="evenodd"
+                d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z"
+                clip-rule="evenodd"></path>
+            </svg>
+            <span>past exhibition</span>
+            <span class="sr-only">open info current exhibition</span>
+          </button>
+          <div class="accordion___panel">
+            <p>Stadtteilzentrum Siemenstadt
+              <br>
+              Wattstr. 13
+              <br>
+              13629 Berlin
+            </p>
+            <p>
+              For more information:
+              <br>
+            <address class="accordion___address">
+              <a href="mailto:annarosarighi@gmail.com">annarosarighi@gmail.com</a>
+            </address>
+            </p>
+          </div>
+        </div>
       </div>
-    </main>
-    <footer class="footer">
-      <p class="footer__copy">&copy; 2025, Annarosa Righi. All rights reserved.</p>
-    </footer>
-  </body>
-  <script type="module" src="./js/index.js"></script>
+      <p class="footer__copyright">&copy; 2025, Annarosa Righi. All rights reserved.</p>
+    </div>
+  </footer>
+</body>
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/gsap.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/ScrollTrigger.min.js"></script>
+<script type="module" src="./js/index.js"></script>
+
 </html>

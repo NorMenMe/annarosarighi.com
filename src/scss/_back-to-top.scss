@@ -1,0 +1,41 @@
+.back-to-top__button {
+	position: fixed;
+	border-radius: 50%;
+	background-color: var(--color-white-primary);
+	cursor: pointer;
+	padding: 10px;
+	display: inline-flex;
+	align-items: center;
+	transition: opacity 400ms cubic-bezier(1,-0.02,.82,.64);
+	right: 5px;
+	bottom: 50px;
+
+	@media (min-width: 768px) {
+		right: 15px;
+	}
+
+	@media (min-width: 1200px) {
+		right: 50px;
+	}
+
+	&.hidden {
+		opacity: 0;
+	}
+
+	&:active {
+		cursor: grabbing;
+	}
+}
+
+.back-to-top__icon {
+	width: 30px;
+	transition: scale 400ms ease;
+
+	@media (min-width: 1200px) {
+		width: 40px;
+	}
+}
+
+.back-to-top__button:hover .back-to-top__icon {
+	scale: 1.1;
+}

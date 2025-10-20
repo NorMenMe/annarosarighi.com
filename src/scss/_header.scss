@@ -1,0 +1,36 @@
+.header {
+  width: fit-content;
+  margin: 40px auto 25px;
+
+  @media (min-width: 768px) {
+    margin-top: 50px;
+  }
+
+  @media (min-width: 1200px) {
+    margin: 60px auto 45px;
+  }
+  
+  &.ani-in {
+    animation: ani-in 1000ms ease;
+  }
+}
+
+.header__heading {
+  font-size: 36px;
+  font-weight: var(--font-weigth-extra-bold);
+  color: var(--color-black-light);
+  transition: color 500ms ease-in;
+
+  @media (min-width: 768px) {
+    font-size: 80px;
+    margin-bottom: 0;
+  }
+
+  @media (min-width: 1200px) {
+    font-size: 110px;
+  }
+
+  .is-collapsed & {
+    color: rgba(0, 0, 0, 1);
+  }
+}

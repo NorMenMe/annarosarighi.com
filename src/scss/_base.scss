@@ -1,0 +1,71 @@
+@keyframes ani-in {
+
+	0% {
+		transform: translate(0, 3rem);
+	}
+
+	100% {
+		transform: translate(0, 0);
+	}
+}
+
+:root {
+	--transformX: 0;
+	--transformY: 0;
+	--color-black-light: rgba(0, 0, 0, 0.6);
+	--item-index : 0;
+	--item-spacing: 35px;
+	--font-weigth-regular: 400;
+	--font-weigth-medium: 500;
+	--font-weigth-extra-bold: 800;
+
+	/* SPACING */
+
+	--space-s: 10px;
+	--space-xs: 15px;
+
+	--space-m: 20px;
+	--space-xm: 30px;
+
+	--space-l: 45px;
+	--space-xl: 80px;
+	--space-xxl: 100px;
+	--space-xxxl: 120px;
+
+	/* COLOR */
+
+	--color-white-primary: #fff;
+	--color-grey-primary: #F5F5F5;
+}
+
+html {
+	scroll-behavior: smooth;
+}
+
+body {
+	font-family: "Roboto", sans-serif;
+	font-optical-sizing: auto;
+	background-color: var(--color-grey-primary);
+}
+
+
+a,
+button,
+input {
+	&:focus-visible {
+		outline: 3px dotted var(--color-black-light);
+		outline-offset: 3px;
+	}
+}
+
+.sr-only {
+	position: absolute;
+	width: 1px;
+	height: 1px;
+	padding: 0;
+	margin: -1px;
+	overflow: hidden;
+	clip: rect(0, 0, 0, 0);
+	white-space: nowrap;
+	border-width: 0;
+}
